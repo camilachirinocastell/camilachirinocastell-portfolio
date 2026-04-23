@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Descripción para motores de búsqueda y redes sociales -->
     <meta name="description" content="Portfolio personal de Camila Chirino Castell — Desarrolladora Fullstack con conocimientos en IA generativa" />
+
     <title>Camila Chirino Castell</title>
 
-    <!-- 1. Preconexión con los servidores de Google Fonts -->
+    <!-- Preconexión a los servidores de Google Fonts para mejorar la velocidad de carga -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- 2. Enlace específico para las fuentes Playfair Display (Bold 700) e Inter (Regular 400 y Medium 500) -->
+    <!-- Playfair Display para títulos (editorial) e Inter para cuerpo (legibilidad) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    <!-- 3. Conecta con CSS -->
+    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-    <!-- NAVEGACIÓN -->
+    <!-- Header fijo — permanece visible durante el scroll
+         z-index definido en CSS para que quede por encima de todas las secciones -->
     <header>
         <nav>
+            <!-- Lista de navegación — cada link usa anclas internas (#id)
+                 para navegar entre secciones sin recargar la página -->
             <ul>
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#bio">Bio</a></li>
@@ -33,20 +39,98 @@
         </nav>
     </header>
 
-    <!-- SECCIONES -->
+    <!-- Contenido principal del sitio
+         Cada section tiene un id único que coincide con los links del nav -->
     <main>
-        <section id="hero"></section>
+
+        <!-- HERO — Primera sección visible al entrar al sitio
+             Layout dividido: identidad a la izquierda, navegación visual a la derecha -->
+        <section id="hero">
+            <div class="hero-container">
+
+                <!-- Lado izquierdo — nombre, rol, frase y llamadas a la acción -->
+                <div class="hero-left">
+
+                    <!-- H1 único en el sitio — importante para SEO y accesibilidad -->
+                    <h1 class="hero-name">Camila Chirino Castell</h1>
+
+                    <!-- Titular que describe el perfil profesional -->
+                    <p class="hero-role">Desarrolladora Fullstack orientada a producto</p>
+
+                    <!-- Frase editorial con borde izquierdo en color de acento -->
+                    <p class="hero-phrase">Construyo productos completos.<br>Del servidor al navegador.</p>
+
+                    <!-- CTAs — botón primario lleva a contacto, secundario descarga el CV -->
+                    <div class="hero-cta">
+                        <a href="#contacto" class="btn-primary">Contacto</a>
+                        <a href="assets/cv.pdf" class="btn-secondary" download>Descargar CV</a>
+                    </div>
+
+                </div>
+
+                <!-- Lado derecho — cards como accesos directos a cada sección
+                     Cada card es un enlace con ícono y nombre de la sección -->
+                <div class="hero-right">
+
+                    <a href="#bio" class="hero-card">
+                        <span class="hero-card-icon">👤</span>
+                        <span class="hero-card-name">Bio</span>
+                    </a>
+
+                    <a href="#proyectos" class="hero-card">
+                        <span class="hero-card-icon">💼</span>
+                        <span class="hero-card-name">Proyectos</span>
+                    </a>
+
+                    <a href="#stack" class="hero-card">
+                        <span class="hero-card-icon">🛠️</span>
+                        <span class="hero-card-name">Stack</span>
+                    </a>
+
+                    <a href="#testimonios" class="hero-card">
+                        <span class="hero-card-icon">💬</span>
+                        <span class="hero-card-name">Testimonios</span>
+                    </a>
+
+                    <a href="#contacto" class="hero-card">
+                        <span class="hero-card-icon">📩</span>
+                        <span class="hero-card-name">Contacto</span>
+                    </a>
+
+                    <!-- Link directo a descarga del CV desde el hero -->
+                    <a href="assets/cv.pdf" class="hero-card" download>
+                        <span class="hero-card-icon">📄</span>
+                        <span class="hero-card-name">CV</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BIO — Presentación personal sin título visible en pantalla
+             El copy editorial habla solo, el menú indica la sección activa -->
         <section id="bio"></section>
+
+        <!-- PROYECTOS — Grid de cards con los trabajos más representativos -->
         <section id="proyectos"></section>
+
+        <!-- STACK — Tecnologías con grid de iconos y carrusel decorativo -->
         <section id="stack"></section>
+
+        <!-- TESTIMONIOS — Referencias reales con contexto profesional -->
         <section id="testimonios"></section>
+
+        <!-- CONTACTO — Formulario y links a GitHub y LinkedIn -->
         <section id="contacto"></section>
+
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer — links de navegación y contacto -->
     <footer></footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- Script al final del body para que el HTML cargue primero
+         Maneja: dark/light mode toggle, scroll navigation, dot indicator -->
     <script src="js/main.js"></script>
 
 </body>
