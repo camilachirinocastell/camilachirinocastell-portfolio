@@ -1,0 +1,11 @@
+# System files
+.DS_Store #Archivo oculto de macOS
+
+# Dependencies
+node_modules/ #Carpeta donde Node guarda dependencias. Puede pesar cientos de MB
+
+# Environment variables
+.env #Archivo para variables privadas (API keys, contraseñas)
+
+# Editor settings
+.vscode/ #evita subir configuraciones del editor VSC.
