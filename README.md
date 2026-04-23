@@ -3,7 +3,7 @@
 Portfolio personal desarrollado con HTML, CSS y JavaScript.
 
 ## 🔗 Ver sitio en vivo
-*(link al deploy — se agrega cuando esté publicado)*
+[camilachirinocastell-portfolio.netlify.app](https://camilachirinocastell-portfolio.netlify.app)
 
 ## 🛠️ Stack
 HTML · CSS · JavaScript
