@@ -78,12 +78,16 @@ a {
    4. FULLPAGE SCROLLING
    ================================ */
 
+/* scroll-snap-type: y mandatory engancha el scroll
+   a cada sección de forma limpia y obligatoria */
 html {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100%;
 }
 
+/* Cada sección ocupa exactamente una pantalla
+   y el scroll se ancla al inicio de cada una */
 section {
     height: 100vh;
     scroll-snap-align: start;
@@ -94,6 +98,9 @@ section {
    5. NAVEGACIÓN
    ================================ */
 
+/* opacity: 0 oculta el header en el Hero
+   JS agrega la clase .visible al salir del Hero
+   pointer-events: none evita que sea clickeable cuando está oculto */
 header {
     position: fixed;
     top: 0;
@@ -135,6 +142,20 @@ nav ul li a:hover {
    6. HERO
    ================================ */
 
+/*
+  Sección de entrada — ocupa el 100% de la pantalla (fullpage).
+  Layout dividido en dos columnas con Flexbox:
+
+  · Izquierda (.hero-left): identidad — nombre, titular,
+    frase editorial y CTAs (contacto + descarga CV)
+  · Derecha (.hero-right): navegación visual — grid de cards
+    que llevan directamente a cada sección del portfolio
+
+  El header está oculto en esta sección porque las cards
+  reemplazan al menú. El contenido tiene un ancho máximo
+  de 1100px para evitar que se estire en pantallas anchas.
+*/
+
 #hero {
     height: 100vh;
     display: flex;
@@ -150,6 +171,8 @@ nav ul li a:hover {
     height: 100%;
     align-items: center;
 }
+
+/* --- Columna izquierda — identidad y llamadas a la acción --- */
 
 .hero-left {
     flex: 1;
@@ -173,6 +196,7 @@ nav ul li a:hover {
     color: var(--text-secondary);
 }
 
+/* Borde izquierdo en color de acento — patrón editorial */
 .hero-phrase {
     font-family: var(--font-titles);
     font-size: var(--font-size-lg);
@@ -204,6 +228,7 @@ nav ul li a:hover {
     opacity: 0.85;
 }
 
+/* Outline button — sin fondo, solo borde — acción secundaria */
 .btn-secondary {
     background-color: transparent;
     color: var(--text-secondary);
@@ -221,6 +246,10 @@ nav ul li a:hover {
     border-color: var(--text-color);
 }
 
+/* --- Columna derecha — navegación visual por cards --- */
+
+/* flex-wrap: wrap genera el grid de 3 columnas automáticamente
+   cuando las cards no caben en una fila */
 .hero-right {
     flex: 1;
     display: flex;
@@ -231,6 +260,8 @@ nav ul li a:hover {
     padding: var(--spacing-md);
 }
 
+/* calc(33% - var(--spacing-sm)) da tres cards por fila
+   descontando el gap entre ellas */
 .hero-card {
     width: calc(33% - var(--spacing-sm));
     background-color: var(--card-bg);
@@ -245,6 +276,8 @@ nav ul li a:hover {
     color: var(--text-secondary);
 }
 
+/* translateY(-6px) sube la card al hacer hover
+   el borde cambia al color de acento para reforzar la interacción */
 .hero-card:hover {
     transform: translateY(-6px);
     border-color: var(--accent-color);
