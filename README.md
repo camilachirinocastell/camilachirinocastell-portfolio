@@ -24,3 +24,4 @@ camilachirinocastell-portfolio/
     ├── images/
     ├── icons/
     └── fonts/
+```

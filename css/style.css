@@ -2,59 +2,36 @@
    1. DEFINICIÓN DE VARIABLES
    ================================ */
 
-/*
-  Custom properties centralizadas en :root para mantener consistencia
-  visual en todo el sitio. Cualquier cambio de paleta, tipografía
-  o espaciado se resuelve modificando una sola variable.
-*/
 :root {
-
-    /* Playfair Display para títulos — aporta carácter editorial
-       Inter para cuerpo — alta legibilidad en pantalla */
     --font-titles: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
 
-    /* Escala tipográfica en rem — escala proporcionalmente
-       si el usuario modifica el tamaño de fuente del navegador */
-    --font-size-sm: 0.875rem;   /* 14px */
-    --font-size-md: 1rem;       /* 16px — base */
-    --font-size-lg: 1.25rem;    /* 20px */
-    --font-size-xl: 1.5rem;     /* 24px */
-    --font-size-2xl: 2rem;      /* 32px */
-    --font-size-3xl: 2.5rem;    /* 40px */
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
 
-    /* Sistema de espaciado consistente — se usa en lugar de
-       valores hardcodeados para mantener ritmo visual uniforme */
-    --spacing-xs: 0.5rem;       /* 8px */
-    --spacing-sm: 1rem;         /* 16px */
-    --spacing-md: 2rem;         /* 32px */
-    --spacing-lg: 4rem;         /* 64px */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
 
-    /* Tres tamaños de border-radius para distintos componentes:
-       sm → botones / md → cards / lg → contenedores */
     --border-radius-sm: 8px;
     --border-radius-md: 12px;
     --border-radius-lg: 16px;
 
-    /* Transición global para microinteracciones
-       0.3s es el estándar recomendado en UX */
     --transition: 0.3s ease;
 
-    /* Paleta dark mode — modo por defecto
-       Negro puro de fondo, cards en azul oscuro.
-       La diferencia de valor entre fondo y cards
-       genera jerarquía visual sin necesidad de sombras */
     --bg-color: #0a0a0a;
     --card-bg: #1E293B;
-    --border-color: #475569;    /* Borde más claro para que las cards resalten */
+    --border-color: #475569;
     --text-color: #F1F5F9;
     --text-secondary: #94A3B8;
-    --accent-color: #3B82F6;    /* Azul eléctrico — único color de acento en ambos modos */
+    --accent-color: #3B82F6;
 }
 
-/* Al cambiar las variables en este scope, todos los componentes
-   que dependen de ellas se actualizan automáticamente.
-   El toggle se maneja desde JavaScript agregando esta clase al body. */
 body.light-mode {
     --bg-color: #F8FAFC;
     --card-bg: #FFFFFF;
@@ -68,10 +45,6 @@ body.light-mode {
    2. RESET BÁSICO
    ================================ */
 
-/* Elimina márgenes y paddings que los navegadores aplican por defecto,
-   garantizando que el layout se vea igual en Chrome, Firefox y Safari.
-   box-sizing: border-box incluye padding y border dentro del ancho
-   declarado — evita desbordes inesperados en el layout. */
 * {
     margin: 0;
     padding: 0;
@@ -82,38 +55,45 @@ body.light-mode {
    3. ESTILOS GLOBALES
    ================================ */
 
-/* Estilos base del documento. Se aplican desde variables
-   para que cualquier cambio de tema sea automático y global.
-   line-height: 1.6 mejora la legibilidad del texto corrido. */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-body);
     font-size: var(--font-size-md);
     line-height: 1.6;
+    height: 100%;
 }
 
-/* Todos los títulos usan Playfair Display para mantener
-   la identidad editorial consistente en todas las secciones. */
 h1, h2, h3 {
     font-family: var(--font-titles);
     color: var(--text-color);
 }
 
-/* Links sin subrayado por defecto.
-   El color de acento los identifica visualmente sin decoración adicional. */
 a {
     color: var(--accent-color);
     text-decoration: none;
 }
 
 /* ================================
-   4. NAVEGACIÓN
+   4. FULLPAGE SCROLLING
    ================================ */
 
-/* position: fixed mantiene el header visible durante el scroll.
-   z-index: 100 lo posiciona por encima de todos los demás elementos.
-   El border-bottom sutil separa la navegación del contenido. */
+html {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+
+/* ================================
+   5. NAVEGACIÓN
+   ================================ */
+
 header {
     position: fixed;
     top: 0;
@@ -122,11 +102,16 @@ header {
     z-index: 100;
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
 }
 
-/* Flexbox distribuye el logo y los links en los extremos del header.
-   justify-content: space-between crea ese efecto sin necesidad
-   de márgenes manuales. */
+header.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
 nav ul {
     display: flex;
     justify-content: space-between;
@@ -135,8 +120,6 @@ nav ul {
     padding: var(--spacing-sm) var(--spacing-lg);
 }
 
-/* Links en color secundario para no competir con el contenido principal.
-   La transición suaviza el cambio de color en hover. */
 nav ul li a {
     font-family: var(--font-body);
     font-size: var(--font-size-sm);
@@ -149,42 +132,34 @@ nav ul li a:hover {
 }
 
 /* ================================
-   5. HERO
+   6. HERO
    ================================ */
 
-/* 100vh hace que la sección ocupe exactamente el alto de la pantalla.
-   padding-top compensa el header fijo para que el contenido
-   no quede oculto detrás de él. */
 #hero {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-top: 60px;
 }
 
-/* Layout dividido en dos columnas iguales con Flexbox.
-   Lado izquierdo: identidad y CTAs.
-   Lado derecho: navegación visual por cards. */
 .hero-container {
     display: flex;
     width: 100%;
-    min-height: 100vh;
+    max-width: 1100px;
+    height: 100%;
+    align-items: center;
 }
 
-/* flex: 1 asigna el 50% disponible a cada lado.
-   flex-direction: column apila los elementos verticalmente.
-   gap maneja el espacio entre cada elemento interno. */
 .hero-left {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: var(--spacing-sm);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
 }
 
-/* H1 principal con Playfair Display.
-   line-height: 1.1 aprieta las líneas para un titular más impactante. */
 .hero-name {
     font-family: var(--font-titles);
     font-size: var(--font-size-3xl);
@@ -198,8 +173,6 @@ nav ul li a:hover {
     color: var(--text-secondary);
 }
 
-/* Borde izquierdo en color de acento — patrón editorial
-   para destacar una frase o cita principal. */
 .hero-phrase {
     font-family: var(--font-titles);
     font-size: var(--font-size-lg);
@@ -216,9 +189,6 @@ nav ul li a:hover {
     margin-top: var(--spacing-sm);
 }
 
-/* Botón principal con fondo sólido en color de acento.
-   opacity en hover mantiene el color sin necesidad de definir
-   una variante más oscura del azul. */
 .btn-primary {
     background-color: var(--accent-color);
     color: #ffffff;
@@ -234,8 +204,6 @@ nav ul li a:hover {
     opacity: 0.85;
 }
 
-/* Outline button para acción secundaria — sin fondo, solo borde.
-   Convención de UI para jerarquizar visualmente las acciones. */
 .btn-secondary {
     background-color: transparent;
     color: var(--text-secondary);
@@ -253,9 +221,6 @@ nav ul li a:hover {
     border-color: var(--text-color);
 }
 
-/* flex-wrap: wrap genera el grid de 3 columnas automáticamente
-   cuando las cards no caben en una fila.
-   border-left separa visualmente los dos lados del hero. */
 .hero-right {
     flex: 1;
     display: flex;
@@ -263,14 +228,9 @@ nav ul li a:hover {
     align-content: center;
     justify-content: center;
     gap: var(--spacing-sm);
-    padding: var(--spacing-lg);
-    border-left: 1px solid var(--border-color);
+    padding: var(--spacing-md);
 }
 
-/* calc(33% - var(--spacing-sm)) da tres cards por fila
-   descontando el gap entre ellas.
-   El hover effect combina transform y border-color
-   para dar sensación de profundidad e interactividad. */
 .hero-card {
     width: calc(33% - var(--spacing-sm));
     background-color: var(--card-bg);
@@ -285,8 +245,6 @@ nav ul li a:hover {
     color: var(--text-secondary);
 }
 
-/* translateY(-6px) sube la card levemente al hacer hover.
-   El borde cambia al color de acento para reforzar la interacción. */
 .hero-card:hover {
     transform: translateY(-6px);
     border-color: var(--accent-color);
