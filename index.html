@@ -46,7 +46,7 @@
     <header>
       <nav>
         <!-- Lista de navegación — cada link usa anclas internas (#id)
-                 para navegar entre secciones sin recargar la página -->
+             para navegar entre secciones sin recargar la página -->
         <ul>
           <li><a href="#hero">Inicio</a></li>
           <li><a href="#bio">Bio</a></li>
@@ -61,19 +61,19 @@
     <!-- Contenido principal del sitio
          Cada section tiene un id único que coincide con los links del nav -->
     <main>
+
       <!-- HERO — Primera sección visible al entrar al sitio
-             Layout dividido: identidad a la izquierda, navegación visual a la derecha -->
+           Layout dividido: identidad a la izquierda, navegación visual a la derecha -->
       <section id="hero">
         <div class="hero-container">
+
           <!-- Lado izquierdo — nombre, rol, frase y llamadas a la acción -->
           <div class="hero-left">
             <!-- H1 único en el sitio — importante para SEO y accesibilidad -->
             <h1 class="hero-name">Camila Chirino Castell</h1>
 
             <!-- Titular que describe el perfil profesional -->
-            <p class="hero-role">
-              Desarrolladora Fullstack orientada a producto
-            </p>
+            <p class="hero-role">Desarrolladora Fullstack orientada a producto</p>
 
             <!-- Frase editorial con borde izquierdo en color de acento -->
             <p class="hero-phrase">
@@ -83,14 +83,12 @@
             <!-- CTAs — botón primario lleva a contacto, secundario descarga el CV -->
             <div class="hero-cta">
               <a href="#contacto" class="btn-primary">Contacto</a>
-              <a href="assets/cv.pdf" class="btn-secondary" download
-                >Descargar CV</a
-              >
+              <a href="assets/cv.pdf" class="btn-secondary" download>Descargar CV</a>
             </div>
           </div>
 
           <!-- Lado derecho — cards como accesos directos a cada sección
-                     Cada card es un enlace con ícono y nombre de la sección -->
+               Cada card es un enlace con ícono y nombre de la sección -->
           <div class="hero-right">
             <a href="#bio" class="hero-card">
               <span class="hero-card-icon">👤</span>
@@ -123,14 +121,16 @@
               <span class="hero-card-name">CV</span>
             </a>
           </div>
+
         </div>
       </section>
 
-     <!-- BIO — Presentación personal sin título visible en pantalla
-            Layout dividido: copy editorial a la izquierda, foto a la derecha
-            El menú indica la sección activa, el copy habla solo -->
+      <!-- BIO — Presentación personal sin título visible en pantalla
+           Layout dividido: copy editorial a la izquierda, foto a la derecha
+           El menú indica la sección activa, el copy habla solo -->
       <section id="bio">
         <div class="bio-container">
+
           <!-- Lado izquierdo — frase, párrafos, etiquetas técnicas y LinkedIn -->
           <div class="bio-left">
             <!-- Frase principal en Playfair Display — sin título de sección -->
@@ -154,8 +154,7 @@
               comunicar en equipo.
             </p>
 
-            <!-- Etiquetas técnicas estilo space manual
-                 Fuente monoespaciada para reforzar el carácter técnico -->
+            <!-- Etiquetas técnicas estilo space manual -->
             <div class="bio-tags">
               <div class="bio-tag">
                 <span class="bio-tag-key">LOCATION___</span>
@@ -171,8 +170,8 @@
               </div>
             </div>
 
-            <!-- Link a LinkedIn — detalle de experiencia completa -->
-            <a
+            <!-- Link a LinkedIn -->
+            
               href="https://www.linkedin.com/in/camila-chirino-castell"
               class="bio-linkedin"
               target="_blank"
@@ -189,87 +188,166 @@
               class="bio-photo"
             />
           </div>
+
         </div>
       </section>
 
       <!-- PROYECTOS — Grid de cards con los trabajos más representativos
-     Cada card incluye: imagen preview, título, descripción, tags de tecnologías y links -->
-<section id="proyectos">
-    <div class="proyectos-container">
+           Cada card incluye: imagen preview, título, descripción, tags de tecnologías y links -->
+      <section id="proyectos">
+        <div class="proyectos-container">
 
-        <h2 class="proyectos-titulo">Projects</h2>
+          <h2 class="proyectos-titulo">Projects</h2>
 
-        <div class="proyectos-grid">
+          <div class="proyectos-grid">
 
             <!-- Proyecto 01 — Library Management System -->
             <div class="proyecto-card">
-                <div class="proyecto-preview">
-                    <img src="https://placehold.co/600x300/1E293B/475569?text=Library+Management+System" alt="Library Management System preview" class="proyecto-img">
+              <div class="proyecto-preview">
+                <img src="https://placehold.co/600x300/1E293B/475569?text=Library+Management+System" alt="Library Management System preview" class="proyecto-img">
+              </div>
+              <div class="proyecto-body">
+                <span class="proyecto-numero">01</span>
+                <h3 class="proyecto-titulo">Library Management System</h3>
+                <p class="proyecto-desc">Sistema de gestión de biblioteca con estructuras de datos, algoritmos de búsqueda, ordenamiento y sistema de préstamos.</p>
+                <div class="proyecto-tags">
+                  <span class="proyecto-tag">JavaScript</span>
+                  <span class="proyecto-tag">Node.js</span>
                 </div>
-                <div class="proyecto-body">
-                    <span class="proyecto-numero">01</span>
-                    <h3 class="proyecto-titulo">Library Management System</h3>
-                    <p class="proyecto-desc">Sistema de gestión de biblioteca con estructuras de datos, algoritmos de búsqueda, ordenamiento y sistema de préstamos.</p>
-                    <div class="proyecto-tags">
-                        <span class="proyecto-tag">JavaScript</span>
-                        <span class="proyecto-tag">Node.js</span>
-                    </div>
-                    <div class="proyecto-links">
-                        <a href="https://github.com/camilachirinocastell/library-management-system" class="proyecto-link" target="_blank">GitHub</a>
-                    </div>
+                <div class="proyecto-links">
+                  <a href="https://github.com/camilachirinocastell/library-management-system" class="proyecto-link" target="_blank">GitHub</a>
                 </div>
+              </div>
             </div>
 
             <!-- Proyecto 02 — Personal Portfolio -->
             <div class="proyecto-card">
-                <div class="proyecto-preview">
-                    <img src="https://placehold.co/600x300/1E293B/475569?text=Personal+Portfolio" alt="Personal Portfolio preview" class="proyecto-img">
+              <div class="proyecto-preview">
+                <img src="https://placehold.co/600x300/1E293B/475569?text=Personal+Portfolio" alt="Personal Portfolio preview" class="proyecto-img">
+              </div>
+              <div class="proyecto-body">
+                <span class="proyecto-numero">02</span>
+                <h3 class="proyecto-titulo">Personal Portfolio</h3>
+                <p class="proyecto-desc">Portfolio personal con fullpage scrolling, dark/light mode, Google Analytics y diseño editorial.</p>
+                <div class="proyecto-tags">
+                  <span class="proyecto-tag">HTML</span>
+                  <span class="proyecto-tag">CSS</span>
+                  <span class="proyecto-tag">JavaScript</span>
                 </div>
-                <div class="proyecto-body">
-                    <span class="proyecto-numero">02</span>
-                    <h3 class="proyecto-titulo">Personal Portfolio</h3>
-                    <p class="proyecto-desc">Portfolio personal con fullpage scrolling, dark/light mode, Google Analytics y diseño editorial.</p>
-                    <div class="proyecto-tags">
-                        <span class="proyecto-tag">HTML</span>
-                        <span class="proyecto-tag">CSS</span>
-                        <span class="proyecto-tag">JavaScript</span>
-                    </div>
-                    <div class="proyecto-links">
-                        <a href="https://github.com/camilachirinocastell/camilachirinocastell-portfolio" class="proyecto-link" target="_blank">GitHub</a>
-                        <a href="https://camilachirinocastell-portfolio.netlify.app" class="proyecto-link proyecto-link-demo" target="_blank">Demo</a>
-                    </div>
+                <div class="proyecto-links">
+                  <a href="https://github.com/camilachirinocastell/camilachirinocastell-portfolio" class="proyecto-link" target="_blank">GitHub</a>
+                  <a href="https://camilachirinocastell-portfolio.netlify.app" class="proyecto-link proyecto-link-demo" target="_blank">Demo</a>
                 </div>
+              </div>
             </div>
 
             <!-- Proyecto 03 — AI Engineer Tool (Coming Soon) -->
             <div class="proyecto-card proyecto-coming-soon">
-                <div class="proyecto-preview">
-                    <img src="https://placehold.co/600x300/0f172a/1E293B?text=Coming+Soon" alt="AI Engineer Tool — en desarrollo" class="proyecto-img">
+              <div class="proyecto-preview">
+                <img src="https://placehold.co/600x300/0f172a/1E293B?text=Coming+Soon" alt="AI Engineer Tool — en desarrollo" class="proyecto-img">
+              </div>
+              <div class="proyecto-body">
+                <span class="proyecto-numero">03</span>
+                <span class="proyecto-badge">Coming Soon</span>
+                <h3 class="proyecto-titulo">AI Engineer Tool</h3>
+                <p class="proyecto-desc">Herramienta orientada a IA generativa. En desarrollo con React.</p>
+                <div class="proyecto-tags">
+                  <span class="proyecto-tag">React</span>
+                  <span class="proyecto-tag">AI</span>
                 </div>
-                <div class="proyecto-body">
-                    <span class="proyecto-numero">03</span>
-                    <span class="proyecto-badge">Coming Soon</span>
-                    <h3 class="proyecto-titulo">AI Engineer Tool</h3>
-                    <p class="proyecto-desc">Herramienta orientada a IA generativa. En desarrollo con React.</p>
-                    <div class="proyecto-tags">
-                        <span class="proyecto-tag">React</span>
-                        <span class="proyecto-tag">AI</span>
-                    </div>
-                </div>
+              </div>
             </div>
 
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
       <!-- STACK — Tecnologías con grid de iconos y carrusel decorativo -->
-      <section id="stack"></section>
+      <section id="stack">
+        <div class="stack-container">
+
+          <h2 class="stack-titulo">Stack</h2>
+          <p class="stack-subtitulo">Tecnologías con las que construyo.</p>
+
+          <!-- Grid estático de iconos oficiales -->
+          <div class="stack-grid">
+            <div class="stack-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="stack-icon">
+              <span class="stack-name">HTML</span>
+            </div>
+            <div class="stack-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="stack-icon">
+              <span class="stack-name">CSS</span>
+            </div>
+            <div class="stack-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="stack-icon">
+              <span class="stack-name">JavaScript</span>
+            </div>
+            <div class="stack-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="stack-icon">
+              <span class="stack-name">Node.js</span>
+            </div>
+            <div class="stack-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="stack-icon">
+              <span class="stack-name">Git</span>
+            </div>
+            <div class="stack-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="stack-icon">
+              <span class="stack-name">GitHub</span>
+            </div>
+          </div>
+
+          <!-- Carrusel decorativo infinito — solo visual, sin interacción -->
+          <div class="stack-carrusel">
+            <div class="stack-carrusel-track">
+              <span class="stack-carrusel-item">HTML</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">CSS</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">JavaScript</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">Node.js</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">Git</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">GitHub</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">HTML</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">CSS</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">JavaScript</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">Node.js</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">Git</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">GitHub</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">HTML</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">CSS</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">JavaScript</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">Node.js</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">Git</span>
+              <span class="stack-carrusel-item">·</span>
+              <span class="stack-carrusel-item">GitHub</span>
+              <span class="stack-carrusel-item">·</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       <!-- TESTIMONIOS — Referencias reales con contexto profesional -->
       <section id="testimonios"></section>
 
       <!-- CONTACTO — Formulario y links a GitHub y LinkedIn -->
       <section id="contacto"></section>
+
     </main>
 
     <!-- Footer — links de navegación y contacto -->
