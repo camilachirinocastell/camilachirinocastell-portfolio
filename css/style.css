@@ -162,8 +162,8 @@ header.visible {
     pointer-events: all;
 }
 
-/* Flexbox distribuye el logo y los links en los extremos del header.
-   justify-content: space-between crea ese efecto sin márgenes manuales. */
+/* Flexbox distribuye los links en el header.
+   justify-content: space-between los separa uniformemente. */
 nav ul {
     display: flex;
     justify-content: space-between;
@@ -459,8 +459,8 @@ nav ul li a:hover {
     color: var(--text-secondary);
 }
 
-/* "Available" en color de acento — dato clave visible
-   de inmediato para el reclutador */
+/* "Available" en color de acento — resalta visualmente
+   sobre el resto de las etiquetas para comunicar disponibilidad */
 .bio-tag-available {
     color: var(--accent-color);
 }
@@ -708,8 +708,7 @@ nav ul li a:hover {
   1. Grid estático de iconos oficiales (devicons via CDN) con nombre debajo.
      Permite identificar cada tecnología claramente.
   2. Carrusel decorativo infinito con CSS animation.
-     Solo visual — sin interacción, sin clicks. Refuerza el volumen
-     del stack de forma dinámica sin repetir la información del grid.
+     Solo visual — sin interacción, sin clicks.
 
   La animación usa la técnica de contenido triplicado:
   el track se desplaza -33.33% y vuelve al inicio sin que
@@ -824,4 +823,119 @@ nav ul li a:hover {
     to {
         transform: translateX(-33.33%);
     }
+}
+
+/* ================================
+   10. TESTIMONIOS
+   ================================ */
+
+/*
+  Grid de 2x2 — cuatro cards con cita, nombre y rol.
+  Cada card tiene borde izquierdo en color de acento —
+  patrón editorial consistente con hero-phrase y bio-line.
+  La cita va arriba en itálica, la firma valida abajo
+  separada por una línea horizontal.
+
+  El padding y gap están ajustados para que el grid de 2x2
+  entre completo dentro de 100vh sin cortar las cards inferiores.
+*/
+#testimonios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px; /* compensa el header fijo */
+}
+
+/* Mismo max-width que el resto de secciones para consistencia visual */
+.testimonios-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.testimonios-titulo {
+    font-family: var(--font-titles);
+    font-size: var(--font-size-2xl);
+    color: var(--text-color);
+}
+
+/* Subtítulo en itálica — mismo patrón editorial que Stack y Bio */
+.testimonios-subtitulo {
+    font-family: var(--font-titles);
+    font-size: var(--font-size-md);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Grid de 2 columnas — 2 testimonios por fila
+   gap reducido para que el grid entre en 100vh */
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+/* border-left: 3px en color de acento — patrón editorial
+   consistente con hero-phrase y bio-line */
+.testimonio-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.testimonio-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+}
+
+/* Cita en itálica — convención tipográfica para testimonios
+   font-size-sm para que el texto entre bien en las cards del grid 2x2 */
+.testimonio-texto {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    flex: 1;
+}
+
+/* Footer — separado de la cita por border-top
+   padding-top crea espacio entre la línea y el contenido */
+.testimonio-footer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.testimonio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Nombre en font-weight: 500 — jerarquía visual sobre el rol */
+.testimonio-nombre {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Rol en monospace — mismo patrón que las etiquetas de Bio y Stack */
+.testimonio-rol {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
 }
