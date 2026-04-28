@@ -939,3 +939,164 @@ nav ul li a:hover {
     font-size: 0.75rem;
     color: var(--text-secondary);
 }
+
+/* ================================
+   11. CONTACTO
+   ================================ */
+
+/*
+  Layout dividido con Flexbox — mismo patrón que Hero y Bio.
+  Izquierda: frase de cierre, email directo y links externos.
+  Derecha: formulario de contacto.
+
+  El formulario es solo visual por ahora.
+  Pendiente: conectar con Formspree agregando action al form
+  para que los datos lleguen por email sin necesidad de backend.
+
+  Cada campo del formulario tiene su label asociado con for/id
+  para cumplir con accesibilidad y semántica correcta.
+*/
+#contacto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px; /* compensa el header fijo — mismo valor que el resto de secciones */
+}
+
+/* Mismo patrón que bio-container y hero-container para consistencia visual */
+.contacto-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 var(--spacing-lg);
+}
+
+/* --- Lado izquierdo — información de contacto --- */
+
+.contacto-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* H2 sin título de sección visible —
+   la frase de cierre cumple la función del titular */
+.contacto-titulo {
+    font-family: var(--font-titles);
+    font-size: var(--font-size-2xl);
+    color: var(--text-color);
+    line-height: 1.15;
+}
+
+/* Subtítulo en itálica — par editorial del titular */
+.contacto-subtitulo {
+    font-family: var(--font-titles);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-top: -0.75rem;
+}
+
+/* Línea divisoria en color de acento — mismo patrón que Bio */
+.contacto-line {
+    width: 32px;
+    height: 1px;
+    background-color: var(--accent-color);
+}
+
+/* Email en color de acento — se identifica como link sin subrayado */
+.contacto-email {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--accent-color);
+    transition: opacity var(--transition);
+}
+
+.contacto-email:hover {
+    opacity: 0.8;
+}
+
+/* Contenedor de links — mismos botones outline que bio-linkedin
+   y btn-secondary para consistencia en todo el sitio */
+.contacto-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+}
+
+/* --- Lado derecho — formulario de contacto --- */
+
+.contacto-right {
+    flex: 1;
+}
+
+/* El form ocupa todo el ancho del lado derecho */
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+}
+
+/* Cada grupo campo+label apilados verticalmente —
+   el label siempre arriba del input para legibilidad */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-label {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+/* Input y textarea comparten los mismos estilos base —
+   consistencia visual entre todos los campos del formulario */
+.form-input,
+.form-textarea {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 0.75rem 1rem;
+    width: 100%;
+    transition: border-color var(--transition);
+    outline: none;
+}
+
+/* :focus cambia el borde al color de acento —
+   feedback visual de qué campo está activo */
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--accent-color);
+}
+
+/* placeholder en color secundario más suave —
+   no compite con el texto real del usuario */
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--border-color);
+}
+
+/* resize: vertical permite al usuario agrandar el textarea
+   solo hacia abajo — evita que rompa el layout horizontal */
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* El botón de envío ocupa todo el ancho del formulario —
+   mismo estilo que btn-primary para consistencia */
+.form-submit {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+}
