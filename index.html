@@ -348,7 +348,8 @@
       <!-- TESTIMONIOS — Referencias reales con contexto profesional
            4 cards en grid de 2x2 — cada una con cita, nombre, rol y contexto
            Placeholder en testimonio 01 (profesor actual) y 04 (pendiente)
-           Reemplazar con testimonios reales cuando estén disponibles -->
+           Reemplazar con testimonios reales cuando estén disponibles
+           blockquote es la etiqueta semántica correcta para citas textuales -->
       <section id="testimonios">
         <div class="testimonios-container">
 
@@ -359,7 +360,7 @@
 
             <!-- Testimonio 01 — Profesor Frontend actual (placeholder) -->
             <div class="testimonio-card">
-              <p class="testimonio-texto">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</p>
+              <blockquote class="testimonio-texto">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</blockquote>
               <div class="testimonio-footer">
                 <div class="testimonio-info">
                   <span class="testimonio-nombre">Profesor</span>
@@ -370,7 +371,7 @@
 
             <!-- Testimonio 02 — Felipe Puerta, CEO Cementerio de Libros -->
             <div class="testimonio-card">
-              <p class="testimonio-texto">"Llevamos casi tres años trabajando juntos y Camila siempre entregó con autonomía y criterio. Su trabajo contribuyó directamente al crecimiento de la cuenta a más de 1.3 millones de seguidores."</p>
+              <blockquote class="testimonio-texto">"Llevamos casi tres años trabajando juntos y Camila siempre entregó con autonomía y criterio. Su trabajo contribuyó directamente al crecimiento de la cuenta a más de 1.3 millones de seguidores."</blockquote>
               <div class="testimonio-footer">
                 <div class="testimonio-info">
                   <span class="testimonio-nombre">Felipe Puerta</span>
@@ -381,7 +382,7 @@
 
             <!-- Testimonio 03 — Ian Javier Rivas, Mujeres Programando 2023 -->
             <div class="testimonio-card">
-              <p class="testimonio-texto">"Muy buen trabajo y principalmente se nota que le pusiste mucha onda y terminó resaltando muchísimo. También dejé un comentario para el tema de la beca, porque me gustó mucho tu proyecto."</p>
+              <blockquote class="testimonio-texto">"Muy buen trabajo y principalmente se nota que le pusiste mucha onda y terminó resaltando muchísimo. También dejé un comentario para el tema de la beca, porque me gustó mucho tu proyecto."</blockquote>
               <div class="testimonio-footer">
                 <div class="testimonio-info">
                   <span class="testimonio-nombre">Ian Javier Rivas</span>
@@ -392,7 +393,7 @@
 
             <!-- Testimonio 04 — placeholder (Claro o Berlin Automotores) -->
             <div class="testimonio-card">
-              <p class="testimonio-texto">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</p>
+              <blockquote class="testimonio-texto">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</blockquote>
               <div class="testimonio-footer">
                 <div class="testimonio-info">
                   <span class="testimonio-nombre">Nombre</span>
@@ -406,13 +407,13 @@
       </section>
 
       <!-- CONTACTO — Layout dividido: información de contacto a la izquierda, formulario a la derecha
-     El formulario es solo visual por ahora — pendiente conectar con Formspree para envío real
-     Mismo patrón de layout dividido 50/50 que Hero y Bio -->
-<section id="contacto">
-    <div class="contacto-container">
+           El formulario es solo visual por ahora — pendiente conectar con Formspree para envío real
+           Mismo patrón de layout dividido 50/50 que Hero y Bio -->
+      <section id="contacto">
+        <div class="contacto-container">
 
-        <!-- Lado izquierdo — frase de cierre, email, links y CV -->
-        <div class="contacto-left">
+          <!-- Lado izquierdo — frase de cierre, email, links y CV -->
+          <div class="contacto-left">
 
             <!-- Frase de cierre sin título visible — copy editorial habla solo -->
             <h2 class="contacto-titulo">¿Tenés un proyecto en mente?</h2>
@@ -423,67 +424,67 @@
 
             <!-- Email directo — abre el cliente de correo del usuario -->
             <a href="mailto:camila.chirino.castell@mi.unc.edu.ar" class="contacto-email">
-                camila.chirino.castell@mi.unc.edu.ar
+              camila.chirino.castell@mi.unc.edu.ar
             </a>
 
             <!-- Links externos — abren en nueva pestaña sin perder el portfolio -->
             <div class="contacto-links">
-                <a href="https://github.com/camilachirinocastell" class="btn-secondary" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/camila-chirino-castell" class="btn-secondary" target="_blank">LinkedIn</a>
-                <a href="assets/cv.pdf" class="btn-secondary" download>Descargar CV</a>
+              <a href="https://github.com/camilachirinocastell" class="btn-secondary" target="_blank">GitHub</a>
+              <a href="https://www.linkedin.com/in/camila-chirino-castell" class="btn-secondary" target="_blank">LinkedIn</a>
+              <a href="assets/cv.pdf" class="btn-secondary" download>Descargar CV</a>
             </div>
 
-        </div>
+          </div>
 
-        <!-- Lado derecho — formulario de contacto
-             Solo visual por ahora — action="https://formspree.io/f/ID" cuando esté listo -->
-        <div class="contacto-right">
+          <!-- Lado derecho — formulario de contacto
+               Solo visual por ahora — action="https://formspree.io/f/ID" cuando esté listo -->
+          <div class="contacto-right">
             <form class="contacto-form">
 
-                <!-- Cada campo tiene su label asociado con for/id — accesibilidad y semántica -->
-                <div class="form-group">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        class="form-input"
-                        placeholder="Tu nombre"
-                        autocomplete="name"
-                    />
-                </div>
+              <!-- Cada campo tiene su label asociado con for/id — accesibilidad y semántica -->
+              <div class="form-group">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  class="form-input"
+                  placeholder="Tu nombre"
+                  autocomplete="name"
+                />
+              </div>
 
-                <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="form-input"
-                        placeholder="tu@email.com"
-                        autocomplete="email"
-                    />
-                </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="tu@email.com"
+                  autocomplete="email"
+                />
+              </div>
 
-                <div class="form-group">
-                    <label for="mensaje" class="form-label">Mensaje</label>
-                    <textarea
-                        id="mensaje"
-                        name="mensaje"
-                        class="form-textarea"
-                        placeholder="Contame sobre tu proyecto..."
-                        rows="5"
-                    ></textarea>
-                </div>
+              <div class="form-group">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  class="form-textarea"
+                  placeholder="Contame sobre tu proyecto..."
+                  rows="5"
+                ></textarea>
+              </div>
 
-                <!-- Botón de envío — mismo estilo que btn-primary para consistencia -->
-                <button type="submit" class="btn-primary form-submit">Enviar mensaje</button>
+              <!-- Botón de envío — mismo estilo que btn-primary para consistencia -->
+              <button type="submit" class="btn-primary form-submit">Enviar mensaje</button>
 
             </form>
-        </div>
+          </div>
 
-    </div>
-</section>
+        </div>
+      </section>
 
     </main>
 
