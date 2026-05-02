@@ -48,12 +48,42 @@
         <!-- Lista de navegación — cada link usa anclas internas (#id)
              para navegar entre secciones sin recargar la página -->
         <ul>
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#bio">Bio</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#stack">Stack</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li>
+            <a href="#hero"
+              ><span class="nav-icon">🏠</span
+              ><span class="nav-text">Inicio</span></a
+            >
+          </li>
+          <li>
+            <a href="#bio"
+              ><span class="nav-icon">👤</span
+              ><span class="nav-text">Bio</span></a
+            >
+          </li>
+          <li>
+            <a href="#proyectos"
+              ><span class="nav-icon">💼</span
+              ><span class="nav-text">Proyectos</span></a
+            >
+          </li>
+          <li>
+            <a href="#stack"
+              ><span class="nav-icon">🛠️</span
+              ><span class="nav-text">Stack</span></a
+            >
+          </li>
+          <li>
+            <a href="#testimonios"
+              ><span class="nav-icon">💬</span
+              ><span class="nav-text">Testimonios</span></a
+            >
+          </li>
+          <li>
+            <a href="#contacto"
+              ><span class="nav-icon">📩</span
+              ><span class="nav-text">Contacto</span></a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -61,19 +91,19 @@
     <!-- Contenido principal del sitio
          Cada section tiene un id único que coincide con los links del nav -->
     <main>
-
       <!-- HERO — Primera sección visible al entrar al sitio
            Layout dividido: identidad a la izquierda, navegación visual a la derecha -->
       <section id="hero">
         <div class="hero-container">
-
           <!-- Lado izquierdo — nombre, rol, frase y llamadas a la acción -->
           <div class="hero-left">
             <!-- H1 único en el sitio — importante para SEO y accesibilidad -->
             <h1 class="hero-name">Camila Chirino Castell</h1>
 
             <!-- Titular que describe el perfil profesional -->
-            <p class="hero-role">Desarrolladora Fullstack orientada a producto</p>
+            <p class="hero-role">
+              Desarrolladora Fullstack orientada a producto
+            </p>
 
             <!-- Frase editorial con borde izquierdo en color de acento -->
             <p class="hero-phrase">
@@ -83,7 +113,9 @@
             <!-- CTAs — botón primario lleva a contacto, secundario descarga el CV -->
             <div class="hero-cta">
               <a href="#contacto" class="btn-primary">Contacto</a>
-              <a href="assets/cv.pdf" class="btn-secondary" download>Descargar CV</a>
+              <a href="assets/cv.pdf" class="btn-secondary" download
+                >Descargar CV</a
+              >
             </div>
           </div>
 
@@ -121,7 +153,6 @@
               <span class="hero-card-name">CV</span>
             </a>
           </div>
-
         </div>
       </section>
 
@@ -130,7 +161,6 @@
            El menú indica la sección activa, el copy habla solo -->
       <section id="bio">
         <div class="bio-container">
-
           <!-- Lado izquierdo — frase, párrafos, etiquetas técnicas y LinkedIn -->
           <div class="bio-left">
             <!-- Frase principal en Playfair Display — sin título de sección -->
@@ -170,11 +200,12 @@
               </div>
             </div>
 
-              <!-- Link a LinkedIn — abre en nueva pestaña sin perder el portfolio.
+            <!-- Link a LinkedIn — abre en nueva pestaña sin perder el portfolio.
                  rel="noopener noreferrer" es una buena práctica de seguridad:
                  evita que la página de destino pueda acceder a la ventana de origen -->
-            
-            <a href="https://www.linkedin.com/in/camila-chirino-castell"
+
+            <a
+              href="https://www.linkedin.com/in/camila-chirino-castell"
               class="bio-linkedin"
               target="_blank"
               rel="noopener noreferrer"
@@ -191,7 +222,6 @@
               class="bio-photo"
             />
           </div>
-
         </div>
       </section>
 
@@ -199,26 +229,37 @@
            Cada card incluye: imagen preview, título, descripción, tags de tecnologías y links -->
       <section id="proyectos">
         <div class="proyectos-container">
-
           <h2 class="proyectos-titulo">Projects</h2>
 
           <div class="proyectos-grid">
-
             <!-- Proyecto 01 — Library Management System -->
             <div class="proyecto-card">
               <div class="proyecto-preview">
-                <img src="https://placehold.co/600x300/1E293B/475569?text=Library+Management+System" alt="Library Management System preview" class="proyecto-img">
+                <img
+                  src="https://placehold.co/600x300/1E293B/475569?text=Library+Management+System"
+                  alt="Library Management System preview"
+                  class="proyecto-img"
+                />
               </div>
               <div class="proyecto-body">
                 <span class="proyecto-numero">01</span>
                 <h3 class="proyecto-titulo">Library Management System</h3>
-                <p class="proyecto-desc">Sistema de gestión de biblioteca con estructuras de datos, algoritmos de búsqueda, ordenamiento y sistema de préstamos.</p>
+                <p class="proyecto-desc">
+                  Sistema de gestión de biblioteca con estructuras de datos,
+                  algoritmos de búsqueda, ordenamiento y sistema de préstamos.
+                </p>
                 <div class="proyecto-tags">
                   <span class="proyecto-tag">JavaScript</span>
                   <span class="proyecto-tag">Node.js</span>
                 </div>
                 <div class="proyecto-links">
-                  <a href="https://github.com/camilachirinocastell/library-management-system" class="proyecto-link" target="_blank">GitHub</a>
+                  <a
+                    href="https://github.com/camilachirinocastell/library-management-system"
+                    class="proyecto-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub</a
+                  >
                 </div>
               </div>
             </div>
@@ -226,20 +267,39 @@
             <!-- Proyecto 02 — Personal Portfolio -->
             <div class="proyecto-card">
               <div class="proyecto-preview">
-                <img src="https://placehold.co/600x300/1E293B/475569?text=Personal+Portfolio" alt="Personal Portfolio preview" class="proyecto-img">
+                <img
+                  src="https://placehold.co/600x300/1E293B/475569?text=Personal+Portfolio"
+                  alt="Personal Portfolio preview"
+                  class="proyecto-img"
+                />
               </div>
               <div class="proyecto-body">
                 <span class="proyecto-numero">02</span>
                 <h3 class="proyecto-titulo">Personal Portfolio</h3>
-                <p class="proyecto-desc">Portfolio personal con fullpage scrolling, dark/light mode, Google Analytics y diseño editorial.</p>
+                <p class="proyecto-desc">
+                  Portfolio personal con fullpage scrolling, dark/light mode,
+                  Google Analytics y diseño editorial.
+                </p>
                 <div class="proyecto-tags">
                   <span class="proyecto-tag">HTML</span>
                   <span class="proyecto-tag">CSS</span>
                   <span class="proyecto-tag">JavaScript</span>
                 </div>
                 <div class="proyecto-links">
-                  <a href="https://github.com/camilachirinocastell/camilachirinocastell-portfolio" class="proyecto-link" target="_blank">GitHub</a>
-                  <a href="https://camilachirinocastell-portfolio.netlify.app" class="proyecto-link proyecto-link-demo" target="_blank">Demo</a>
+                  <a
+                    href="https://github.com/camilachirinocastell/camilachirinocastell-portfolio"
+                    class="proyecto-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub</a
+                  >
+                  <a
+                    href="https://camilachirinocastell-portfolio.netlify.app"
+                    class="proyecto-link proyecto-link-demo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Demo</a
+                  >
                 </div>
               </div>
             </div>
@@ -247,20 +307,26 @@
             <!-- Proyecto 03 — AI Engineer Tool (Coming Soon) -->
             <div class="proyecto-card proyecto-coming-soon">
               <div class="proyecto-preview">
-                <img src="https://placehold.co/600x300/0f172a/1E293B?text=Coming+Soon" alt="AI Engineer Tool — en desarrollo" class="proyecto-img">
+                <img
+                  src="https://placehold.co/600x300/0f172a/1E293B?text=Coming+Soon"
+                  alt="AI Engineer Tool — en desarrollo"
+                  class="proyecto-img"
+                />
               </div>
               <div class="proyecto-body">
                 <span class="proyecto-numero">03</span>
                 <span class="proyecto-badge">Coming Soon</span>
                 <h3 class="proyecto-titulo">AI Engineer Tool</h3>
-                <p class="proyecto-desc">Herramienta orientada a IA generativa. En desarrollo con React.</p>
+                <p class="proyecto-desc">
+                  Herramienta orientada a IA generativa. En desarrollo con
+                  React.
+                </p>
                 <div class="proyecto-tags">
                   <span class="proyecto-tag">React</span>
                   <span class="proyecto-tag">AI</span>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -268,34 +334,57 @@
       <!-- STACK — Tecnologías con grid de iconos y carrusel decorativo -->
       <section id="stack">
         <div class="stack-container">
-
           <h2 class="stack-titulo">Stack</h2>
           <p class="stack-subtitulo">Tecnologías con las que construyo.</p>
 
           <!-- Grid estático de iconos oficiales (devicons via CDN — librería pública y gratuita) -->
           <div class="stack-grid">
             <div class="stack-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="stack-icon">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                alt="HTML5"
+                class="stack-icon"
+              />
               <span class="stack-name">HTML</span>
             </div>
             <div class="stack-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="stack-icon">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                alt="CSS3"
+                class="stack-icon"
+              />
               <span class="stack-name">CSS</span>
             </div>
             <div class="stack-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="stack-icon">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JavaScript"
+                class="stack-icon"
+              />
               <span class="stack-name">JavaScript</span>
             </div>
             <div class="stack-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="stack-icon">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                alt="Node.js"
+                class="stack-icon"
+              />
               <span class="stack-name">Node.js</span>
             </div>
             <div class="stack-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="stack-icon">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                alt="Git"
+                class="stack-icon"
+              />
               <span class="stack-name">Git</span>
             </div>
             <div class="stack-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="stack-icon">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub"
+                class="stack-icon"
+              />
               <span class="stack-name">GitHub</span>
             </div>
           </div>
@@ -344,7 +433,6 @@
               <span class="stack-carrusel-item">·</span>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -355,26 +443,37 @@
            blockquote es la etiqueta semántica correcta para citas textuales -->
       <section id="testimonios">
         <div class="testimonios-container">
-
           <h2 class="testimonios-titulo">Testimonios</h2>
-          <p class="testimonios-subtitulo">Palabras de quienes trabajaron conmigo.</p>
+          <p class="testimonios-subtitulo">
+            Palabras de quienes trabajaron conmigo.
+          </p>
 
           <div class="testimonios-grid">
-
             <!-- Testimonio 01 — Profesor Frontend actual (placeholder) -->
             <div class="testimonio-card">
-              <blockquote class="testimonio-texto">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</blockquote>
+              <blockquote class="testimonio-texto">
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation."
+              </blockquote>
               <div class="testimonio-footer">
                 <div class="testimonio-info">
                   <span class="testimonio-nombre">Profesor</span>
-                  <span class="testimonio-rol">Instructor Frontend · ADA ITW 2025</span>
+                  <span class="testimonio-rol"
+                    >Instructor Frontend · ADA ITW 2025</span
+                  >
                 </div>
               </div>
             </div>
 
             <!-- Testimonio 02 — Felipe Puerta, CEO Cementerio de Libros -->
             <div class="testimonio-card">
-              <blockquote class="testimonio-texto">"Llevamos casi tres años trabajando juntos y Camila siempre entregó con autonomía y criterio. Su trabajo contribuyó directamente al crecimiento de la cuenta a más de 1.3 millones de seguidores."</blockquote>
+              <blockquote class="testimonio-texto">
+                "Llevamos casi tres años trabajando juntos y Camila siempre
+                entregó con autonomía y criterio. Su trabajo contribuyó
+                directamente al crecimiento de la cuenta a más de 1.3 millones
+                de seguidores."
+              </blockquote>
               <div class="testimonio-footer">
                 <div class="testimonio-info">
                   <span class="testimonio-nombre">Felipe Puerta</span>
@@ -385,18 +484,28 @@
 
             <!-- Testimonio 03 — Ian Javier Rivas, Mujeres Programando 2023 -->
             <div class="testimonio-card">
-              <blockquote class="testimonio-texto">"Muy buen trabajo y principalmente se nota que le pusiste mucha onda y terminó resaltando muchísimo. También dejé un comentario para el tema de la beca, porque me gustó mucho tu proyecto."</blockquote>
+              <blockquote class="testimonio-texto">
+                "Muy buen trabajo y principalmente se nota que le pusiste mucha
+                onda y terminó resaltando muchísimo. También dejé un comentario
+                para el tema de la beca, porque me gustó mucho tu proyecto."
+              </blockquote>
               <div class="testimonio-footer">
                 <div class="testimonio-info">
                   <span class="testimonio-nombre">Ian Javier Rivas</span>
-                  <span class="testimonio-rol">Instructor Frontend · Mujeres Programando 2023</span>
+                  <span class="testimonio-rol"
+                    >Instructor Frontend · Mujeres Programando 2023</span
+                  >
                 </div>
               </div>
             </div>
 
             <!-- Testimonio 04 — placeholder (Claro o Berlin Automotores) -->
             <div class="testimonio-card">
-              <blockquote class="testimonio-texto">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</blockquote>
+              <blockquote class="testimonio-texto">
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation."
+              </blockquote>
               <div class="testimonio-footer">
                 <div class="testimonio-info">
                   <span class="testimonio-nombre">Nombre</span>
@@ -404,7 +513,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -414,10 +522,8 @@
            Mismo patrón de layout dividido 50/50 que Hero y Bio -->
       <section id="contacto">
         <div class="contacto-container">
-
           <!-- Lado izquierdo — frase de cierre, email, links y CV -->
           <div class="contacto-left">
-
             <!-- Frase de cierre sin título visible — copy editorial habla solo -->
             <h2 class="contacto-titulo">¿Tenés un proyecto en mente?</h2>
             <p class="contacto-subtitulo">Hablemos.</p>
@@ -426,24 +532,39 @@
             <div class="contacto-line"></div>
 
             <!-- Email directo — abre el cliente de correo del usuario -->
-            <a href="mailto:camila.chirino.castell@mi.unc.edu.ar" class="contacto-email">
+            <a
+              href="mailto:camila.chirino.castell@mi.unc.edu.ar"
+              class="contacto-email"
+            >
               camila.chirino.castell@mi.unc.edu.ar
             </a>
 
             <!-- Links externos — abren en nueva pestaña sin perder el portfolio -->
             <div class="contacto-links">
-              <a href="https://github.com/camilachirinocastell" class="btn-secondary" target="_blank">GitHub</a>
-              <a href="https://www.linkedin.com/in/camila-chirino-castell" class="btn-secondary" target="_blank">LinkedIn</a>
-              <a href="assets/cv.pdf" class="btn-secondary" download>Descargar CV</a>
+              <a
+                href="https://github.com/camilachirinocastell"
+                class="btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a
+                href="https://www.linkedin.com/in/camila-chirino-castell"
+                class="btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+              <a href="assets/cv.pdf" class="btn-secondary" download
+                >Descargar CV</a
+              >
             </div>
-
           </div>
 
           <!-- Lado derecho — formulario de contacto
                Solo visual por ahora — action="https://formspree.io/f/ID" cuando esté listo -->
           <div class="contacto-right">
             <form class="contacto-form">
-
               <!-- Cada campo tiene su label asociado con for/id — accesibilidad y semántica -->
               <div class="form-group">
                 <label for="nombre" class="form-label">Nombre</label>
@@ -481,18 +602,62 @@
               </div>
 
               <!-- Botón de envío — mismo estilo que btn-primary para consistencia -->
-              <button type="submit" class="btn-primary form-submit">Enviar mensaje</button>
-
+              <button type="submit" class="btn-primary form-submit">
+                Enviar mensaje
+              </button>
             </form>
           </div>
-
         </div>
       </section>
-
     </main>
 
-    <!-- Footer — links de navegación y contacto -->
-    <footer></footer>
+    <!-- Footer — links de navegación y links de contacto
+     Elemento fuera del fullpage scrolling — no tiene height: 100vh
+     Cumple requisito de la consigna: links de navegación + links de contacto + copyright -->
+    <footer>
+      <div class="footer-container">
+        <!-- Links de navegación — mismas anclas internas que el header -->
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#bio">Bio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <!-- Links de contacto y copyright -->
+        <div class="footer-bottom">
+          <!-- Links externos — abren en nueva pestaña -->
+          <div class="footer-links">
+            <a
+              href="mailto:camila.chirino.castell@mi.unc.edu.ar"
+              class="footer-link"
+              >Email</a
+            >
+            <a
+              href="https://github.com/camilachirinocastell"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+            <a
+              href="https://www.linkedin.com/in/camila-chirino-castell"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </div>
+
+          <!-- &copy; es una entidad HTML — forma de escribir el símbolo © sin teclado -->
+          <p class="footer-copy">&copy; 2026 Camila Chirino Castell</p>
+        </div>
+      </div>
+    </footer>
 
     <!-- Script al final del body para que el HTML cargue primero
          Maneja: dark/light mode toggle, scroll navigation, dot indicator -->

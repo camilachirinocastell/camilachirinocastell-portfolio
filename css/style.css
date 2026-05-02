@@ -115,7 +115,10 @@ a {
 
 /* scroll-snap-type: y mandatory engancha el scroll
    a cada sección de forma limpia y obligatoria.
-   Nativo del navegador — sin librerías externas. */
+   Nativo del navegador — sin librerías externas.
+   Se usa mandatory en desktop para el efecto fullpage estricto.
+   En mobile se desactiva dentro de la media query
+   para permitir scroll libre — ver sección 13. RESPONSIVE. */
 html {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
@@ -132,7 +135,6 @@ section {
     scroll-snap-align: start;
     overflow: hidden;
 }
-
 /* ================================
    5. NAVEGACIÓN
    ================================ */
@@ -961,7 +963,8 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 60px; /* compensa el header fijo — mismo valor que el resto de secciones */
+    padding-top: 60px;
+    padding-bottom: 150px; /* compensa el alto del footer fijo (145.6px) */
 }
 
 /* Mismo patrón que bio-container y hero-container para consistencia visual */
@@ -1091,7 +1094,7 @@ nav ul li a:hover {
    solo hacia abajo — evita que rompa el layout horizontal */
 .form-textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 80px; /* reducido de 120px para que el formulario entre con el footer */
 }
 
 /* El botón de envío ocupa todo el ancho del formulario —
@@ -1100,4 +1103,261 @@ nav ul li a:hover {
     width: 100%;
     cursor: pointer;
     border: none;
+}
+
+/* ================================
+   12. FOOTER
+   ================================ */
+
+/*
+  El footer no forma parte del fullpage scrolling —
+  no tiene height: 100vh ni scroll-snap-align.
+
+  En desktop usa position: fixed para pegarse al fondo de la pantalla.
+  Está oculto por defecto (opacity: 0, pointer-events: none).
+  JavaScript usa IntersectionObserver sobre #contacto para agregar
+  la clase .visible cuando esa sección está en pantalla —
+  el mismo patrón que se usa para mostrar el header al salir del Hero.
+  Así el footer aparece pegado al fondo solo en la sección Contacto,
+  sin necesidad de moverlo dentro del HTML de esa sección
+  (lo que rompería la semántica correcta del documento).
+
+  En mobile vuelve a position: static y aparece al final
+  del scroll normal — ver sección 13. RESPONSIVE.
+
+  Dos partes:
+  · footer-nav: mismos links de navegación que el header
+  · footer-bottom: links de contacto + copyright en una fila
+*/
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-sm) 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+}
+
+/* Clase agregada por JS cuando #contacto es visible —
+   mismo patrón que header.visible */
+footer.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Mismo max-width que el resto de secciones para consistencia visual */
+.footer-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Links de navegación en fila — list-style: none elimina los bullets
+   justify-content: center los centra horizontalmente */
+.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    list-style: none;
+}
+
+/* Mismo estilo que nav ul li a del header — consistencia visual */
+.footer-nav ul li a {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    transition: color var(--transition);
+}
+
+.footer-nav ul li a:hover {
+    color: var(--text-color);
+}
+
+/* Fila inferior — links de contacto a la izquierda, copyright a la derecha
+   space-between distribuye el espacio entre los dos extremos */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-sm);
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* Links de contacto en color secundario — mismo patrón que nav */
+.footer-link {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    transition: color var(--transition);
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+/* Copyright en monospace — mismo patrón que las etiquetas técnicas del sitio */
+.footer-copy {
+    font-family: monospace;
+    font-size: var(--font-size-sm); /* subido de 0.75rem — da presencia a la firma */
+    color: var(--border-color);
+}
+
+/* ================================
+   13. RESPONSIVE — MOBILE
+   ================================ */
+
+/*
+  Media query para pantallas de hasta 768px (tablets y celulares).
+  Los layouts divididos en dos columnas se apilan en una sola columna.
+  Los grids de múltiples columnas se reducen.
+*/
+@media (max-width: 768px) {
+
+    /* Hero — columnas apiladas en lugar de lado a lado */
+    .hero-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--spacing-md);
+    }
+
+    .hero-left {
+        padding: var(--spacing-sm);
+        align-items: center;
+        text-align: center;
+    }
+
+    /* La frase con borde izquierdo se centra — se saca el borde */
+    .hero-phrase {
+        border-left: none;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .hero-right {
+        padding: var(--spacing-sm);
+        width: 100%;
+    }
+
+    /* Cards del hero — dos por fila en mobile */
+    .hero-card {
+        width: calc(33% - var(--spacing-xs));
+    }
+
+    /* Bio — columnas apiladas, foto centrada */
+    .bio-container {
+        flex-direction: column;
+        padding: 0 var(--spacing-sm);
+        gap: var(--spacing-md);
+        align-items: center;
+        text-align: center;
+    }
+
+    .bio-line {
+        margin: 0 auto var(--spacing-sm) auto;
+    }
+
+    .bio-text {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .bio-tags {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    /* Proyectos — una columna en mobile */
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack — tres columnas en mobile */
+    .stack-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* Testimonios — una columna en mobile */
+    .testimonios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contacto — columnas apiladas */
+    .contacto-container {
+        flex-direction: column;
+        padding: 0 var(--spacing-sm);
+        gap: var(--spacing-md);
+    }
+
+    /* Footer — copyright centrado en mobile */
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        gap: var(--spacing-xs);
+    }
+    /* Desactiva fullpage scrolling en mobile —
+       el contenido de cada sección supera el alto de la pantalla
+       y el scroll libre es más apropiado para dispositivos chicos */
+    html {
+        scroll-snap-type: none;
+    }
+
+    section {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+        /* Footer — vuelve al flujo normal del documento en mobile
+       Se muestra al final del scroll sin necesidad de JS */
+    footer {
+        position: static;
+        opacity: 1;
+        pointer-events: all;
+    }
+        /* Header nav — links centrados y con espacio en mobile */
+    nav ul {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-xs);
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: var(--font-size-sm);
+    }
+        /* Nav mobile — muestra solo iconos, oculta el texto */
+    /* Nav mobile — muestra solo iconos, oculta el texto */
+    .nav-text {
+        display: none;
+    }
+
+    .nav-icon {
+        font-size: 1.25rem;
+    }
+
+    nav ul {
+        justify-content: space-around;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
 }
