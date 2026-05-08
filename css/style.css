@@ -8,61 +8,60 @@
   o espaciado se resuelve modificando una sola variable.
 */
 :root {
-
-    /* Playfair Display para títulos — aporta carácter editorial
+  /* Playfair Display para títulos — aporta carácter editorial
        Inter para cuerpo — alta legibilidad en pantalla */
-    --font-titles: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+  --font-titles: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
 
-    /* Escala tipográfica en rem — escala proporcionalmente
+  /* Escala tipográfica en rem — escala proporcionalmente
        si el usuario modifica el tamaño de fuente del navegador */
-    --font-size-sm: 0.875rem;   /* 14px */
-    --font-size-md: 1rem;       /* 16px — base */
-    --font-size-lg: 1.25rem;    /* 20px */
-    --font-size-xl: 1.5rem;     /* 24px */
-    --font-size-2xl: 2rem;      /* 32px */
-    --font-size-3xl: 2.5rem;    /* 40px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px — base */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 2.5rem; /* 40px */
 
-    /* Sistema de espaciado consistente — se usa en lugar de
+  /* Sistema de espaciado consistente — se usa en lugar de
        valores hardcodeados para mantener ritmo visual uniforme */
-    --spacing-xs: 0.5rem;       /* 8px */
-    --spacing-sm: 1rem;         /* 16px */
-    --spacing-md: 2rem;         /* 32px */
-    --spacing-lg: 4rem;         /* 64px */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 2rem; /* 32px */
+  --spacing-lg: 4rem; /* 64px */
 
-    /* Tres tamaños de border-radius para distintos componentes:
+  /* Tres tamaños de border-radius para distintos componentes:
        sm → botones / md → cards / lg → contenedores y foto */
-    --border-radius-sm: 8px;
-    --border-radius-md: 12px;
-    --border-radius-lg: 16px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
 
-    /* Transición global para microinteracciones
+  /* Transición global para microinteracciones
        0.3s es el estándar recomendado en UX */
-    --transition: 0.3s ease;
+  --transition: 0.3s ease;
 
-    /* Paleta dark mode — modo por defecto
+  /* Paleta dark mode — modo por defecto
        Negro puro de fondo, cards en azul oscuro.
        La diferencia de valor entre fondo y cards
        genera jerarquía visual sin necesidad de sombras.
        Todos los colores cumplen ratio mínimo de contraste 4.5:1 */
-    --bg-color: #0a0a0a;        /* Fondo principal — negro puro */
-    --card-bg: #1E293B;         /* Fondo de cards y componentes */
-    --border-color: #475569;    /* Borde más claro para que las cards resalten */
-    --text-color: #F1F5F9;      /* Texto principal */
-    --text-secondary: #94A3B8;  /* Texto secundario */
-    --accent-color: #3B82F6;    /* Azul eléctrico — único color de acento en ambos modos */
+  --bg-color: #0a0a0a; /* Fondo principal — negro puro */
+  --card-bg: #1e293b; /* Fondo de cards y componentes */
+  --border-color: #475569; /* Borde más claro para que las cards resalten */
+  --text-color: #f1f5f9; /* Texto principal */
+  --text-secondary: #94a3b8; /* Texto secundario */
+  --accent-color: #3b82f6; /* Azul eléctrico — único color de acento en ambos modos */
 }
 
 /* Al cambiar las variables en este scope, todos los componentes
    que dependen de ellas se actualizan automáticamente.
    El toggle se maneja desde JavaScript agregando esta clase al body. */
 body.light-mode {
-    --bg-color: #F8FAFC;        /* Fondo principal — blanco roto */
-    --card-bg: #FFFFFF;         /* Cards en blanco puro */
-    --border-color: #E2E8F0;    /* Borde suave */
-    --text-color: #1E293B;      /* Texto oscuro */
-    --text-secondary: #64748B;  /* Texto secundario */
-    --accent-color: #3B82F6;    /* Mismo azul en ambos modos — identidad consistente */
+  --bg-color: #faf5f5; /* Fondo principal — blanco roto cálido */
+  --card-bg: #ffffff; /* Cards en blanco puro */
+  --border-color: #9a8a8a; /* Más oscuro — etiquetas monoespaciadas y bordes visibles */
+  --text-color: #111111; /* Texto principal — negro neutro igual que dark pero invertido */
+  --text-secondary: #555555; /* Texto secundario — gris neutro con buen contraste */
+  --accent-color: #3D5A3E; /* Verde musgo — acento editorial estilo National Geographic */
 }
 
 /* ================================
@@ -74,9 +73,9 @@ body.light-mode {
    box-sizing: border-box incluye padding y border dentro del ancho
    declarado — evita desbordes inesperados en el layout. */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* ================================
@@ -87,26 +86,28 @@ body.light-mode {
    para que cualquier cambio de tema sea automático y global.
    line-height: 1.6 mejora la legibilidad del texto corrido. */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-body);
-    font-size: var(--font-size-md);
-    line-height: 1.6;
-    height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  height: 100%;
 }
 
 /* Todos los títulos usan Playfair Display para mantener
    la identidad editorial consistente en todas las secciones. */
-h1, h2, h3 {
-    font-family: var(--font-titles);
-    color: var(--text-color);
+h1,
+h2,
+h3 {
+  font-family: var(--font-titles);
+  color: var(--text-color);
 }
 
 /* Links sin subrayado por defecto.
    El color de acento los identifica visualmente sin decoración adicional. */
 a {
-    color: var(--accent-color);
-    text-decoration: none;
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 /* ================================
@@ -120,9 +121,9 @@ a {
    En mobile se desactiva dentro de la media query
    para permitir scroll libre — ver sección 13. RESPONSIVE. */
 html {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 /* height: 100vh fija el alto exactamente a la pantalla —
@@ -131,9 +132,9 @@ html {
    scroll-snap-align: start ancla el scroll al inicio de cada sección.
    overflow: hidden evita scroll interno — revisar cuando el contenido sea largo. */
 section {
-    height: 100vh;
-    scroll-snap-align: start;
-    overflow: hidden;
+  height: 100vh;
+  scroll-snap-align: start;
+  overflow: hidden;
 }
 /* ================================
    5. NAVEGACIÓN
@@ -146,46 +147,98 @@ section {
    La clase .visible la agrega JS con IntersectionObserver
    al salir del Hero, haciendo el header visible en el resto del sitio. */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    background-color: var(--bg-color);
-    border-bottom: 1px solid var(--border-color);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--transition);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
 }
 
 /* Clase agregada por JS al salir del Hero —
    hace el header visible en todas las demás secciones */
 header.visible {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* Flexbox distribuye los links en el header.
    justify-content: space-between los separa uniformemente. */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
 nav ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    padding: var(--spacing-sm) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  flex: 1;
+  justify-content: space-between;
 }
 
 /* Links en color secundario para no competir con el contenido principal.
    La transición suaviza el cambio de color en hover — microinteracción de UX. */
 nav ul li a {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    transition: color var(--transition);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  transition: color var(--transition);
 }
 
 nav ul li a:hover {
-    color: var(--text-color);
+  color: var(--text-color);
+}
+
+/* Barra flotante — fija debajo del header a la derecha
+   Independiente del header, visible en todas las secciones.
+   Preparada para crecer horizontalmente con más toggles (idioma, etc.)
+   z-index: 101 para quedar por encima del header */
+.barra-flotante {
+  position: fixed;
+  top: 5.5rem;
+  right: var(--spacing-lg);
+  z-index: 101;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 0.25rem 0.5rem;
+}
+/* Toggle dark/light — estilo monoespaciado consistente
+   con las etiquetas técnicas de Bio y Stack */
+.theme-toggle {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-color);
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+  letter-spacing: 0.05em;
+}
+
+.theme-toggle:hover {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+.nav-icon {
+  display: none;
 }
 
 /* ================================
@@ -206,20 +259,20 @@ nav ul li a:hover {
   de 1100px para evitar que se estire en pantallas anchas.
 */
 #hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px; /* compensa el header fijo — actualizar si cambia el alto del header */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px; /* compensa el header fijo — actualizar si cambia el alto del header */
 }
 
 /* max-width: 1100px evita que el contenido se estire en pantallas anchas */
 .hero-container {
-    display: flex;
-    width: 100%;
-    max-width: 1100px;
-    height: 100%;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  align-items: center;
 }
 
 /* --- Columna izquierda — identidad y llamadas a la acción --- */
@@ -228,82 +281,84 @@ nav ul li a:hover {
    flex-direction: column apila los elementos verticalmente.
    gap maneja el espacio entre cada elemento interno. */
 .hero-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
 }
 
 /* H1 único en el sitio — importante para SEO y accesibilidad.
    line-height: 1.1 aprieta las líneas para un titular más impactante. */
 .hero-name {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-3xl);
-    color: var(--text-color);
-    line-height: 1.1;
+  font-family: var(--font-titles);
+  font-size: var(--font-size-3xl);
+  color: var(--text-color);
+  line-height: 1.1;
 }
 
 .hero-role {
-    font-family: var(--font-body);
-    font-size: var(--font-size-md);
-    color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
 }
 
 /* Borde izquierdo en color de acento — patrón editorial
    para destacar una frase o cita principal. */
 .hero-phrase {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-lg);
-    font-style: italic;
-    color: var(--text-secondary);
-    border-left: 2px solid var(--accent-color);
-    padding-left: var(--spacing-sm);
-    line-height: 1.6;
+  font-family: var(--font-titles);
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  color: var(--text-secondary);
+  border-left: 2px solid var(--accent-color);
+  padding-left: var(--spacing-sm);
+  line-height: 1.6;
 }
 
 .hero-cta {
-    display: flex;
-    gap: var(--spacing-xs);
-    margin-top: var(--spacing-sm);
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
 }
 
 /* Botón principal con fondo sólido en color de acento.
    opacity en hover mantiene el color sin necesidad de definir
    una variante más oscura del azul. */
 .btn-primary {
-    background-color: var(--accent-color);
-    color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius-sm);
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    transition: opacity var(--transition);
+  background-color: var(--accent-color);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: opacity var(--transition);
 }
 
 .btn-primary:hover {
-    opacity: 0.85;
+  opacity: 0.85;
 }
 
 /* Outline button para acción secundaria — sin fondo, solo borde.
    Convención de UI para jerarquizar visualmente las acciones. */
 .btn-secondary {
-    background-color: transparent;
-    color: var(--text-secondary);
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius-sm);
-    border: 1px solid var(--border-color);
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    transition: color var(--transition), border-color var(--transition);
+  background-color: transparent;
+  color: var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition:
+    color var(--transition),
+    border-color var(--transition);
 }
 
 .btn-secondary:hover {
-    color: var(--text-color);
-    border-color: var(--text-color);
+  color: var(--text-color);
+  border-color: var(--text-color);
 }
 
 /* --- Columna derecha — navegación visual por cards --- */
@@ -311,48 +366,50 @@ nav ul li a:hover {
 /* flex-wrap: wrap genera el grid de 3 columnas automáticamente
    cuando las cards no caben en una fila — sin necesidad de CSS Grid. */
 .hero-right {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md);
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
 }
 
 /* calc(33% - var(--spacing-sm)) da tres cards por fila
    descontando el gap entre ellas.
    Revisar en responsive — puede romper en mobile. */
 .hero-card {
-    width: calc(33% - var(--spacing-sm));
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    padding: var(--spacing-sm);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform var(--transition), border-color var(--transition);
-    color: var(--text-secondary);
+  width: calc(33% - var(--spacing-sm));
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition:
+    transform var(--transition),
+    border-color var(--transition);
+  color: var(--text-secondary);
 }
 
 /* translateY(-6px) sube la card levemente al hacer hover.
    El borde cambia al color de acento para reforzar la interacción. */
 .hero-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent-color);
-    color: var(--text-color);
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  color: var(--text-color);
 }
 
 .hero-card-icon {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .hero-card-name {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
 }
 
 /* ================================
@@ -368,133 +425,135 @@ nav ul li a:hover {
   no quede oculto detrás de él.
 */
 #bio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px; /* compensa el header fijo — mismo valor que #hero */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px; /* compensa el header fijo — mismo valor que #hero */
 }
 
 /* Mismo patrón que .hero-container para consistencia visual entre secciones */
 .bio-container {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-lg);
-    width: 100%;
-    max-width: 1100px;
-    padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 var(--spacing-lg);
 }
 
 /* flex: 1 ocupa el espacio disponible a la izquierda */
 .bio-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 /* H2 en Playfair Display — jerarquía semántica correcta
    debajo del H1 del Hero. Sin título visible de sección —
    el copy editorial habla solo. */
 .bio-title {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-2xl);
-    color: var(--text-color);
-    line-height: 1.15;
-    margin-bottom: 4px;
+  font-family: var(--font-titles);
+  font-size: var(--font-size-2xl);
+  color: var(--text-color);
+  line-height: 1.15;
+  margin-bottom: 4px;
 }
 
 /* Subtítulo en itálica — par editorial de la frase principal */
 .bio-subtitle {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-md);
-    font-style: italic;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-sm);
+  font-family: var(--font-titles);
+  font-size: var(--font-size-md);
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
 }
 
 /* Línea divisoria fina en color de acento
    separa la frase del cuerpo del texto — patrón editorial */
 .bio-line {
-    width: 32px;
-    height: 1px;
-    background-color: var(--accent-color);
-    margin-bottom: var(--spacing-sm);
+  width: 32px;
+  height: 1px;
+  background-color: var(--accent-color);
+  margin-bottom: var(--spacing-sm);
 }
 
 /* max-width: 480px limita el ancho de línea para mejorar legibilidad.
    Óptimo tipográfico: entre 60 y 80 caracteres por línea. */
 .bio-text {
-    font-family: var(--font-body);
-    font-size: var(--font-size-md);
-    color: var(--text-secondary);
-    line-height: 1.85;
-    margin-bottom: var(--spacing-sm);
-    max-width: 480px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: var(--spacing-sm);
+  max-width: 480px;
 }
 
 /* Contenedor de etiquetas técnicas estilo space manual —
    toque de detalle técnico que refuerza el perfil sin romper lo editorial */
 .bio-tags {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: var(--spacing-sm);
-    margin-top: var(--spacing-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
 }
 
 .bio-tag {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 /* Fuente monoespaciada del sistema — refuerza el carácter técnico
    sin necesidad de importar una fuente adicional */
 .bio-tag-key {
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--border-color);
-    min-width: 100px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--border-color);
+  min-width: 100px;
 }
 
 .bio-tag-val {
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
 }
 
 /* "Available" en color de acento — resalta visualmente
    sobre el resto de las etiquetas para comunicar disponibilidad */
 .bio-tag-available {
-    color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* Outline button — mismo estilo que btn-secondary para consistencia.
    target="_blank" en el HTML abre LinkedIn en nueva pestaña
    sin perder el portfolio. */
 .bio-linkedin {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
-    padding: 0.5rem 1rem;
-    width: fit-content;
-    transition: color var(--transition), border-color var(--transition);
-    margin-top: var(--spacing-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+  margin-top: var(--spacing-xs);
 }
 
 .bio-linkedin:hover {
-    color: var(--text-color);
-    border-color: var(--text-color);
+  color: var(--text-color);
+  border-color: var(--text-color);
 }
 
 /* flex-shrink: 0 evita que la foto se comprima
    cuando el texto de la izquierda es largo */
 .bio-right {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 /* object-fit: cover recorta la imagen para que llene el contenedor
@@ -502,13 +561,13 @@ nav ul li a:hover {
    en el rostro. Forma rectangular con bordes redondeados —
    más profesional que círculo (asociado a redes sociales). */
 .bio-photo {
-    width: 200px;
-    height: 240px;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--border-color);
-    display: block;
+  width: 200px;
+  height: 240px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  display: block;
 }
 
 /* ================================
@@ -530,176 +589,180 @@ nav ul li a:hover {
   como guiño al estilo space manual definido en la Fase 5.
 */
 #proyectos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px; /* compensa el header fijo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px; /* compensa el header fijo */
 }
 
 /* Mismo max-width que Hero y Bio para consistencia visual entre secciones */
 .proyectos-container {
-    width: 100%;
-    max-width: 1100px;
-    padding: 0 var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 .proyectos-titulo {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-2xl);
-    color: var(--text-color);
+  font-family: var(--font-titles);
+  font-size: var(--font-size-2xl);
+  color: var(--text-color);
 }
 
 /* CSS Grid — repeat(3, minmax(0, 1fr)) crea 3 columnas de igual ancho
    minmax(0, 1fr) permite que las columnas se reduzcan por debajo
    de su contenido si es necesario, evitando overflow horizontal */
 .proyectos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--spacing-sm);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-sm);
 }
 
 /* overflow: hidden en la card para que la imagen
    respete el border-radius del contenedor */
 .proyecto-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: border-color var(--transition), transform var(--transition);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
 }
 
 /* Mismo hover que las cards del Hero — consistencia de interacción */
 .proyecto-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-4px);
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
 }
 
 /* Contenedor de imagen con altura fija — la imagen se recorta
    para llenar el espacio sin deformarse */
 .proyecto-preview {
-    width: 100%;
-    height: 160px;
-    overflow: hidden;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
 }
 
 .proyecto-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* flex: 1 en el body hace que todas las cards tengan
    la misma altura aunque el contenido sea diferente */
 .proyecto-body {
-    padding: var(--spacing-sm);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex: 1;
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
 }
 
 /* Número de proyecto en monospace — guiño al estilo space manual */
 .proyecto-numero {
-    font-family: monospace;
-    font-size: var(--font-size-sm);
-    color: var(--border-color);
+  font-family: monospace;
+  font-size: var(--font-size-sm);
+  color: var(--border-color);
 }
 
 .proyecto-titulo {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-lg);
-    color: var(--text-color);
-    line-height: 1.3;
+  font-family: var(--font-titles);
+  font-size: var(--font-size-lg);
+  color: var(--text-color);
+  line-height: 1.3;
 }
 
 /* flex: 1 en la descripción empuja los tags y links
    al fondo de la card independientemente del largo del texto */
 .proyecto-desc {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    line-height: 1.6;
-    flex: 1;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
 }
 
 /* Tags de tecnologías en monospace — mismo patrón que las etiquetas de Bio */
 .proyecto-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .proyecto-tag {
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
-    padding: 2px 8px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 2px 8px;
 }
 
 .proyecto-links {
-    display: flex;
-    gap: 8px;
-    margin-top: 4px;
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
 }
 
 /* Links de proyecto — outline button consistente con el resto del sitio */
 .proyecto-link {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
-    padding: 4px 12px;
-    transition: color var(--transition), border-color var(--transition);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 4px 12px;
+  transition:
+    color var(--transition),
+    border-color var(--transition);
 }
 
 .proyecto-link:hover {
-    color: var(--text-color);
-    border-color: var(--text-color);
+  color: var(--text-color);
+  border-color: var(--text-color);
 }
 
 /* Link de demo en color de acento — mayor jerarquía visual
    porque lleva al proyecto en vivo */
 .proyecto-link-demo {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .proyecto-link-demo:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* Badge "Coming Soon" en color de acento con borde —
    comunica que el proyecto existe pero está en desarrollo */
 .proyecto-badge {
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--accent-color);
-    background-color: var(--bg-color);
-    border: 1px solid var(--accent-color);
-    border-radius: var(--border-radius-sm);
-    padding: 2px 8px;
-    width: fit-content;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  background-color: var(--bg-color);
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius-sm);
+  padding: 2px 8px;
+  width: fit-content;
 }
 
 /* opacity: 0.6 comunica visualmente que la card no está disponible aún.
    Se anula el hover para que no genere expectativa de interacción. */
 .proyecto-coming-soon {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .proyecto-coming-soon:hover {
-    transform: none;
-    border-color: var(--border-color);
+  transform: none;
+  border-color: var(--border-color);
 }
 
 /* ================================
@@ -718,101 +781,103 @@ nav ul li a:hover {
   se note el salto, creando el efecto de loop infinito.
 */
 #stack {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px; /* compensa el header fijo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px; /* compensa el header fijo */
 }
 
 /* Mismo max-width que el resto de secciones para consistencia */
 .stack-container {
-    width: 100%;
-    max-width: 1100px;
-    padding: 0 var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 .stack-titulo {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-2xl);
-    color: var(--text-color);
+  font-family: var(--font-titles);
+  font-size: var(--font-size-2xl);
+  color: var(--text-color);
 }
 
 /* Subtítulo en itálica — mismo patrón editorial que Bio */
 .stack-subtitulo {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-md);
-    font-style: italic;
-    color: var(--text-secondary);
-    margin-top: -1rem;
+  font-family: var(--font-titles);
+  font-size: var(--font-size-md);
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: -1rem;
 }
 
 /* CSS Grid para el stack — 6 columnas iguales.
    Mismo criterio que Proyectos: Grid es más apropiado que Flexbox
    para layouts bidimensionales con columnas de igual ancho. */
 .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: var(--spacing-sm);
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--spacing-sm);
 }
 
 /* Cada item del stack con el mismo hover que las cards del Hero —
    consistencia de interacción en todo el sitio */
 .stack-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: var(--spacing-sm);
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    transition: border-color var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: var(--spacing-sm);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
 }
 
 .stack-item:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-4px);
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
 }
 
 .stack-icon {
-    width: 36px;
-    height: 36px;
-    display: block;
+  width: 36px;
+  height: 36px;
+  display: block;
 }
 
 /* Nombre de tecnología en monospace — refuerza el carácter técnico */
 .stack-name {
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
 }
 
 /* Carrusel decorativo — overflow: hidden oculta el contenido
    que sale del contenedor mientras el track se desplaza */
 .stack-carrusel {
-    overflow: hidden;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: var(--spacing-sm) 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--spacing-sm) 0;
 }
 
 /* width: max-content permite que el track sea tan ancho
    como todo su contenido — necesario para que la animación funcione */
 .stack-carrusel-track {
-    display: flex;
-    gap: var(--spacing-md);
-    animation: carrusel 20s linear infinite;
-    width: max-content;
+  display: flex;
+  gap: var(--spacing-md);
+  animation: carrusel 20s linear infinite;
+  width: max-content;
 }
 
 .stack-carrusel-item {
-    font-family: monospace;
-    font-size: var(--font-size-sm);
-    color: var(--border-color);
-    white-space: nowrap;
+  font-family: monospace;
+  font-size: var(--font-size-sm);
+  color: var(--border-color);
+  white-space: nowrap;
 }
 
 /* El contenido del track está triplicado en el HTML.
@@ -820,12 +885,12 @@ nav ul li a:hover {
    cuando termina el primer bloque, el segundo bloque es idéntico
    y el salto al inicio es imperceptible para el usuario. */
 @keyframes carrusel {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-33.33%);
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.33%);
+  }
 }
 
 /* ================================
@@ -843,104 +908,106 @@ nav ul li a:hover {
   entre completo dentro de 100vh sin cortar las cards inferiores.
 */
 #testimonios {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px; /* compensa el header fijo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px; /* compensa el header fijo */
 }
 
 /* Mismo max-width que el resto de secciones para consistencia visual */
 .testimonios-container {
-    width: 100%;
-    max-width: 1100px;
-    padding: 0 var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
 .testimonios-titulo {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-2xl);
-    color: var(--text-color);
+  font-family: var(--font-titles);
+  font-size: var(--font-size-2xl);
+  color: var(--text-color);
 }
 
 /* Subtítulo en itálica — mismo patrón editorial que Stack y Bio */
 .testimonios-subtitulo {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-md);
-    font-style: italic;
-    color: var(--text-secondary);
+  font-family: var(--font-titles);
+  font-size: var(--font-size-md);
+  font-style: italic;
+  color: var(--text-secondary);
 }
 
 /* Grid de 2 columnas — 2 testimonios por fila
    gap reducido para que el grid entre en 100vh */
 .testimonios-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
 /* border-left: 3px en color de acento — patrón editorial
    consistente con hero-phrase y bio-line */
 .testimonio-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-left: 3px solid var(--accent-color);
-    border-radius: var(--border-radius-md);
-    padding: var(--spacing-sm);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 0.5rem;
-    transition: border-color var(--transition), transform var(--transition);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
 }
 
 .testimonio-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-color);
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
 }
 
 /* Cita en itálica — convención tipográfica para testimonios
    font-size-sm para que el texto entre bien en las cards del grid 2x2 */
 .testimonio-texto {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    font-style: italic;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    flex: 1;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  flex: 1;
 }
 
 /* Footer — separado de la cita por border-top
    padding-top crea espacio entre la línea y el contenido */
 .testimonio-footer {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .testimonio-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 /* Nombre en font-weight: 500 — jerarquía visual sobre el rol */
 .testimonio-nombre {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-color);
 }
 
 /* Rol en monospace — mismo patrón que las etiquetas de Bio y Stack */
 .testimonio-rol {
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
 }
 
 /* ================================
@@ -960,149 +1027,149 @@ nav ul li a:hover {
   para cumplir con accesibilidad y semántica correcta.
 */
 #contacto {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px;
-    padding-bottom: 150px; /* compensa el alto del footer fijo (145.6px) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 150px; /* compensa el alto del footer fijo (145.6px) */
 }
 
 /* Mismo patrón que bio-container y hero-container para consistencia visual */
 .contacto-container {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-lg);
-    width: 100%;
-    max-width: 1100px;
-    padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 var(--spacing-lg);
 }
 
 /* --- Lado izquierdo — información de contacto --- */
 
 .contacto-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
 /* H2 sin título de sección visible —
    la frase de cierre cumple la función del titular */
 .contacto-titulo {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-2xl);
-    color: var(--text-color);
-    line-height: 1.15;
+  font-family: var(--font-titles);
+  font-size: var(--font-size-2xl);
+  color: var(--text-color);
+  line-height: 1.15;
 }
 
 /* Subtítulo en itálica — par editorial del titular */
 .contacto-subtitulo {
-    font-family: var(--font-titles);
-    font-size: var(--font-size-lg);
-    font-style: italic;
-    color: var(--text-secondary);
-    margin-top: -0.75rem;
+  font-family: var(--font-titles);
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: -0.75rem;
 }
 
 /* Línea divisoria en color de acento — mismo patrón que Bio */
 .contacto-line {
-    width: 32px;
-    height: 1px;
-    background-color: var(--accent-color);
+  width: 32px;
+  height: 1px;
+  background-color: var(--accent-color);
 }
 
 /* Email en color de acento — se identifica como link sin subrayado */
 .contacto-email {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--accent-color);
-    transition: opacity var(--transition);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--accent-color);
+  transition: opacity var(--transition);
 }
 
 .contacto-email:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* Contenedor de links — mismos botones outline que bio-linkedin
    y btn-secondary para consistencia en todo el sitio */
 .contacto-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    margin-top: var(--spacing-xs);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
 }
 
 /* --- Lado derecho — formulario de contacto --- */
 
 .contacto-right {
-    flex: 1;
+  flex: 1;
 }
 
 /* El form ocupa todo el ancho del lado derecho */
 .contacto-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
 }
 
 /* Cada grupo campo+label apilados verticalmente —
    el label siempre arriba del input para legibilidad */
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .form-label {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
 }
 
 /* Input y textarea comparten los mismos estilos base —
    consistencia visual entre todos los campos del formulario */
 .form-input,
 .form-textarea {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--text-color);
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
-    padding: 0.75rem 1rem;
-    width: 100%;
-    transition: border-color var(--transition);
-    outline: none;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: border-color var(--transition);
+  outline: none;
 }
 
 /* :focus cambia el borde al color de acento —
    feedback visual de qué campo está activo */
 .form-input:focus,
 .form-textarea:focus {
-    border-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 /* placeholder en color secundario más suave —
    no compite con el texto real del usuario */
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: var(--border-color);
+  color: var(--border-color);
 }
 
 /* resize: vertical permite al usuario agrandar el textarea
    solo hacia abajo — evita que rompa el layout horizontal */
 .form-textarea {
-    resize: vertical;
-    min-height: 80px; /* reducido de 120px para que el formulario entre con el footer */
+  resize: vertical;
+  min-height: 80px; /* reducido de 120px para que el formulario entre con el footer */
 }
 
 /* El botón de envío ocupa todo el ancho del formulario —
    mismo estilo que btn-primary para consistencia */
 .form-submit {
-    width: 100%;
-    cursor: pointer;
-    border: none;
+  width: 100%;
+  cursor: pointer;
+  border: none;
 }
 
 /* ================================
@@ -1130,93 +1197,95 @@ nav ul li a:hover {
   · footer-bottom: links de contacto + copyright en una fila
 */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 99;
-    background-color: var(--bg-color);
-    border-top: 1px solid var(--border-color);
-    padding: var(--spacing-sm) 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--transition);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  padding: var(--spacing-sm) 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
 }
 
 /* Clase agregada por JS cuando #contacto es visible —
    mismo patrón que header.visible */
 footer.visible {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* Mismo max-width que el resto de secciones para consistencia visual */
 .footer-container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
 /* Links de navegación en fila — list-style: none elimina los bullets
    justify-content: center los centra horizontalmente */
 .footer-nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  list-style: none;
 }
 
 /* Mismo estilo que nav ul li a del header — consistencia visual */
 .footer-nav ul li a {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    transition: color var(--transition);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  transition: color var(--transition);
 }
 
 .footer-nav ul li a:hover {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 
 /* Fila inferior — links de contacto a la izquierda, copyright a la derecha
    space-between distribuye el espacio entre los dos extremos */
 .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    border-top: 1px solid var(--border-color);
-    padding-top: var(--spacing-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--spacing-sm);
 }
 
 .footer-links {
-    display: flex;
-    gap: var(--spacing-sm);
+  display: flex;
+  gap: var(--spacing-sm);
 }
 
 /* Links de contacto en color secundario — mismo patrón que nav */
 .footer-link {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    transition: color var(--transition);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  transition: color var(--transition);
 }
 
 .footer-link:hover {
-    color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* Copyright en monospace — mismo patrón que las etiquetas técnicas del sitio */
 .footer-copy {
-    font-family: monospace;
-    font-size: var(--font-size-sm); /* subido de 0.75rem — da presencia a la firma */
-    color: var(--border-color);
+  font-family: monospace;
+  font-size: var(
+    --font-size-sm
+  ); /* subido de 0.75rem — da presencia a la firma */
+  color: var(--border-color);
 }
 
 /* ================================
@@ -1229,135 +1298,134 @@ footer.visible {
   Los grids de múltiples columnas se reducen.
 */
 @media (max-width: 768px) {
+  /* Hero — columnas apiladas en lugar de lado a lado */
+  .hero-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
 
-    /* Hero — columnas apiladas en lugar de lado a lado */
-    .hero-container {
-        flex-direction: column;
-        justify-content: center;
-        gap: var(--spacing-md);
-    }
+  .hero-left {
+    padding: var(--spacing-sm);
+    align-items: center;
+    text-align: center;
+  }
 
-    .hero-left {
-        padding: var(--spacing-sm);
-        align-items: center;
-        text-align: center;
-    }
+  /* La frase con borde izquierdo se centra — se saca el borde */
+  .hero-phrase {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
 
-    /* La frase con borde izquierdo se centra — se saca el borde */
-    .hero-phrase {
-        border-left: none;
-        padding-left: 0;
-        text-align: center;
-    }
+  .hero-cta {
+    justify-content: center;
+  }
 
-    .hero-cta {
-        justify-content: center;
-    }
+  .hero-right {
+    padding: var(--spacing-sm);
+    width: 100%;
+  }
 
-    .hero-right {
-        padding: var(--spacing-sm);
-        width: 100%;
-    }
+  /* Cards del hero — dos por fila en mobile */
+  .hero-card {
+    width: calc(33% - var(--spacing-xs));
+  }
 
-    /* Cards del hero — dos por fila en mobile */
-    .hero-card {
-        width: calc(33% - var(--spacing-xs));
-    }
+  /* Bio — columnas apiladas, foto centrada */
+  .bio-container {
+    flex-direction: column;
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-md);
+    align-items: center;
+    text-align: center;
+  }
 
-    /* Bio — columnas apiladas, foto centrada */
-    .bio-container {
-        flex-direction: column;
-        padding: 0 var(--spacing-sm);
-        gap: var(--spacing-md);
-        align-items: center;
-        text-align: center;
-    }
+  .bio-line {
+    margin: 0 auto var(--spacing-sm) auto;
+  }
 
-    .bio-line {
-        margin: 0 auto var(--spacing-sm) auto;
-    }
+  .bio-text {
+    max-width: 100%;
+    text-align: left;
+  }
 
-    .bio-text {
-        max-width: 100%;
-        text-align: left;
-    }
+  .bio-tags {
+    align-items: flex-start;
+    text-align: left;
+  }
 
-    .bio-tags {
-        align-items: flex-start;
-        text-align: left;
-    }
+  /* Proyectos — una columna en mobile */
+  .proyectos-grid {
+    grid-template-columns: 1fr;
+  }
 
-    /* Proyectos — una columna en mobile */
-    .proyectos-grid {
-        grid-template-columns: 1fr;
-    }
+  /* Stack — tres columnas en mobile */
+  .stack-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 
-    /* Stack — tres columnas en mobile */
-    .stack-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+  /* Testimonios — una columna en mobile */
+  .testimonios-grid {
+    grid-template-columns: 1fr;
+  }
 
-    /* Testimonios — una columna en mobile */
-    .testimonios-grid {
-        grid-template-columns: 1fr;
-    }
+  /* Contacto — columnas apiladas */
+  .contacto-container {
+    flex-direction: column;
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-md);
+  }
 
-    /* Contacto — columnas apiladas */
-    .contacto-container {
-        flex-direction: column;
-        padding: 0 var(--spacing-sm);
-        gap: var(--spacing-md);
-    }
+  /* Footer — copyright centrado en mobile */
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    /* Footer — copyright centrado en mobile */
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-nav ul {
-        gap: var(--spacing-xs);
-    }
-    /* Desactiva fullpage scrolling en mobile —
+  .footer-nav ul {
+    gap: var(--spacing-xs);
+  }
+  /* Desactiva fullpage scrolling en mobile —
        el contenido de cada sección supera el alto de la pantalla
        y el scroll libre es más apropiado para dispositivos chicos */
-    html {
-        scroll-snap-type: none;
-    }
+  html {
+    scroll-snap-type: none;
+  }
 
-    section {
-        height: auto;
-        min-height: 100vh;
-        overflow: visible;
-    }
-        /* Footer — vuelve al flujo normal del documento en mobile
+  section {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  /* Footer — vuelve al flujo normal del documento en mobile
        Se muestra al final del scroll sin necesidad de JS */
-    footer {
-        position: static;
-        opacity: 1;
-        pointer-events: all;
-    }
-        /* Header nav — links centrados y con espacio en mobile */
-    nav ul {
-        padding: var(--spacing-sm);
-        gap: var(--spacing-xs);
-        flex-wrap: wrap;
-        justify-content: center;
-        font-size: var(--font-size-sm);
-    }
-        /* Nav mobile — muestra solo iconos, oculta el texto */
-    /* Nav mobile — muestra solo iconos, oculta el texto */
-    .nav-text {
-        display: none;
-    }
+  footer {
+    position: static;
+    opacity: 1;
+    pointer-events: all;
+  }
+  /* Header nav — links centrados y con espacio en mobile */
+  nav ul {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+  }
+  /* Nav mobile — muestra solo iconos, oculta el texto */
+  /* Nav mobile — muestra solo iconos, oculta el texto */
+  .nav-text {
+    display: none;
+  }
 
-    .nav-icon {
-        font-size: 1.25rem;
-    }
+  .nav-icon {
+    font-size: 1.25rem;
+  }
 
-    nav ul {
-        justify-content: space-around;
-        padding: var(--spacing-xs) var(--spacing-sm);
-    }
+  nav ul {
+    justify-content: space-around;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
 }
