@@ -1282,9 +1282,7 @@ footer.visible {
 /* Copyright en monospace — mismo patrón que las etiquetas técnicas del sitio */
 .footer-copy {
   font-family: monospace;
-  font-size: var(
-    --font-size-sm
-  ); /* subido de 0.75rem — da presencia a la firma */
+  font-size: var(--font-size-sm); /* subido de 0.75rem — da presencia a la firma */
   color: var(--border-color);
 }
 
@@ -1406,15 +1404,7 @@ footer.visible {
     opacity: 1;
     pointer-events: all;
   }
-  /* Header nav — links centrados y con espacio en mobile */
-  nav ul {
-    padding: var(--spacing-sm);
-    gap: var(--spacing-xs);
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: var(--font-size-sm);
-  }
-  /* Nav mobile — muestra solo iconos, oculta el texto */
+
   /* Nav mobile — muestra solo iconos, oculta el texto */
   .nav-text {
     display: none;
