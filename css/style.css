@@ -61,7 +61,7 @@ body.light-mode {
   --border-color: #9a8a8a; /* Más oscuro — etiquetas monoespaciadas y bordes visibles */
   --text-color: #111111; /* Texto principal — negro neutro igual que dark pero invertido */
   --text-secondary: #555555; /* Texto secundario — gris neutro con buen contraste */
-  --accent-color: #3D5A3E; /* Verde musgo — acento editorial estilo National Geographic */
+  --accent-color: #3d5a3e; /* Verde musgo — acento editorial estilo National Geographic */
 }
 
 /* ================================
@@ -418,8 +418,8 @@ nav ul li a:hover {
 
 /*
   Layout dividido con Flexbox — mismo patrón que el Hero.
-  Izquierda: copy editorial + etiquetas técnicas + LinkedIn.
-  Derecha: foto de perfil.
+  Izquierda: copy editorial (frase + párrafos).
+  Derecha: foto de perfil + ficha técnica (location/status/stack) + LinkedIn.
   La sección ocupa 100vh gracias a la regla global de section.
   padding-top compensa el header fijo para que el contenido
   no quede oculto detrás de él.
@@ -438,7 +438,7 @@ nav ul li a:hover {
   gap: var(--spacing-lg);
   width: 100%;
   max-width: 1100px;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--spacing-md); /* alineado con Home, Proyectos, Stack, Testimonios */
 }
 
 /* flex: 1 ocupa el espacio disponible a la izquierda */
@@ -489,19 +489,46 @@ nav ul li a:hover {
   max-width: 480px;
 }
 
+/* --- Columna derecha — foto + ficha técnica + LinkedIn ---
+   flex-shrink: 0 evita que se comprima cuando el texto de la izquierda es largo.
+   width fija el ancho de la "ficha" completa (foto + tags + link).
+   gap separa foto, tags y link de forma pareja sin necesitar
+   margin individual en cada uno. */
+.bio-right {
+  flex-shrink: 0;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* object-fit: cover recorta la imagen para que llene el contenedor
+   sin deformarse. object-position: center top centra el foco
+   en el rostro. width: 100% para ocupar todo el ancho de .bio-right. */
+.bio-photo {
+  width: 100%;
+  height: 288px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  display: block;
+}
+
 /* Contenedor de etiquetas técnicas estilo space manual —
    toque de detalle técnico que refuerza el perfil sin romper lo editorial */
 .bio-tags {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: var(--spacing-sm);
-  margin-top: var(--spacing-xs);
+  gap: 10px;
 }
 
+/* flex-direction: column apila etiqueta y valor —
+   en 240px de ancho no entran en una sola fila */
 .bio-tag {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  gap: var(--spacing-xs);
 }
 
 /* Fuente monoespaciada del sistema — refuerza el carácter técnico
@@ -510,13 +537,14 @@ nav ul li a:hover {
   font-family: monospace;
   font-size: 0.75rem;
   color: var(--border-color);
-  min-width: 100px;
+  flex-shrink: 0;
 }
 
 .bio-tag-val {
   font-family: monospace;
   font-size: 0.75rem;
   color: var(--text-secondary);
+  line-height: 1.3;
 }
 
 /* "Available" en color de acento — resalta visualmente
@@ -529,8 +557,9 @@ nav ul li a:hover {
    target="_blank" en el HTML abre LinkedIn en nueva pestaña
    sin perder el portfolio. */
 .bio-linkedin {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--spacing-xs);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
@@ -538,36 +567,16 @@ nav ul li a:hover {
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);
   padding: 0.5rem 1rem;
-  width: fit-content;
+  width: 100%; /* antes: fit-content — ahora ocupa todo el ancho, igual que la foto */
+  text-align: center;
   transition:
     color var(--transition),
     border-color var(--transition);
-  margin-top: var(--spacing-xs);
 }
 
 .bio-linkedin:hover {
   color: var(--text-color);
   border-color: var(--text-color);
-}
-
-/* flex-shrink: 0 evita que la foto se comprima
-   cuando el texto de la izquierda es largo */
-.bio-right {
-  flex-shrink: 0;
-}
-
-/* object-fit: cover recorta la imagen para que llene el contenedor
-   sin deformarse. object-position: center top centra el foco
-   en el rostro. Forma rectangular con bordes redondeados —
-   más profesional que círculo (asociado a redes sociales). */
-.bio-photo {
-  width: 200px;
-  height: 240px;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: var(--border-radius-lg);
-  border: 1px solid var(--border-color);
-  display: block;
 }
 
 /* ================================
@@ -1041,7 +1050,7 @@ nav ul li a:hover {
   gap: var(--spacing-lg);
   width: 100%;
   max-width: 1100px;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--spacing-md); /* antes: var(--spacing-lg) */
 }
 
 /* --- Lado izquierdo — información de contacto --- */
@@ -1282,7 +1291,9 @@ footer.visible {
 /* Copyright en monospace — mismo patrón que las etiquetas técnicas del sitio */
 .footer-copy {
   font-family: monospace;
-  font-size: var(--font-size-sm); /* subido de 0.75rem — da presencia a la firma */
+  font-size: var(
+    --font-size-sm
+  ); /* subido de 0.75rem — da presencia a la firma */
   color: var(--border-color);
 }
 

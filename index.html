@@ -75,7 +75,7 @@
           <li>
             <a href="#hero"
               ><span class="nav-icon">🏠</span
-              ><span class="nav-text">Inicio</span></a
+              ><span class="nav-text">Home</span></a
             >
           </li>
           <li>
@@ -87,7 +87,7 @@
           <li>
             <a href="#proyectos"
               ><span class="nav-icon">💼</span
-              ><span class="nav-text">Proyectos</span></a
+              ><span class="nav-text">Projects</span></a
             >
           </li>
           <li>
@@ -99,13 +99,13 @@
           <li>
             <a href="#testimonios"
               ><span class="nav-icon">💬</span
-              ><span class="nav-text">Testimonios</span></a
+              ><span class="nav-text">Testimonials</span></a
             >
           </li>
           <li>
             <a href="#contacto"
               ><span class="nav-icon">📩</span
-              ><span class="nav-text">Contacto</span></a
+              ><span class="nav-text">Contact</span></a
             >
           </li>
         </ul>
@@ -131,20 +131,18 @@
             <h1 class="hero-name">Camila Chirino Castell</h1>
 
             <!-- Titular que describe el perfil profesional -->
-            <p class="hero-role">
-              Desarrolladora Fullstack orientada a producto
-            </p>
+            <p class="hero-role">Fullstack Developer · AI Engineer path</p>
 
             <!-- Frase editorial con borde izquierdo en color de acento -->
             <p class="hero-phrase">
-              Construyo productos completos.<br />Del servidor al navegador.
+              I build complete products.<br />From server to browser.
             </p>
 
             <!-- CTAs — botón primario lleva a contacto, secundario descarga el CV -->
             <div class="hero-cta">
-              <a href="#contacto" class="btn-primary">Contacto</a>
+              <a href="#contacto" class="btn-primary">Contact</a>
               <a href="assets/cv.pdf" class="btn-secondary" download
-                >Descargar CV</a
+                >Download CV</a
               >
             </div>
           </div>
@@ -159,7 +157,7 @@
 
             <a href="#proyectos" class="hero-card">
               <span class="hero-card-icon">💼</span>
-              <span class="hero-card-name">Proyectos</span>
+              <span class="hero-card-name">Projects</span>
             </a>
 
             <a href="#stack" class="hero-card">
@@ -169,12 +167,12 @@
 
             <a href="#testimonios" class="hero-card">
               <span class="hero-card-icon">💬</span>
-              <span class="hero-card-name">Testimonios</span>
+              <span class="hero-card-name">Testimonials</span>
             </a>
 
             <a href="#contacto" class="hero-card">
               <span class="hero-card-icon">📩</span>
-              <span class="hero-card-name">Contacto</span>
+              <span class="hero-card-name">Contact</span>
             </a>
 
             <!-- Link directo a descarga del CV desde el hero -->
@@ -191,28 +189,51 @@
            El menú indica la sección activa, el copy habla solo -->
       <section id="bio">
         <div class="bio-container">
-          <!-- Lado izquierdo — frase, párrafos, etiquetas técnicas y LinkedIn -->
+          <!-- Lado izquierdo — frase, párrafos y línea divisoria
+     LOCATION/STATUS/STACK y LinkedIn se movieron a bio-right (ver abajo)
+     para liberar aire vertical en el texto -->
           <div class="bio-left">
             <!-- Frase principal en Playfair Display — sin título de sección -->
-            <h2 class="bio-title">Construyo productos completos.</h2>
-            <p class="bio-subtitle">Del servidor al navegador.</p>
+            <h2 class="bio-title">I build complete products.</h2>
+            <p class="bio-subtitle">From server to browser.</p>
 
             <!-- Línea divisoria en color de acento -->
             <div class="bio-line"></div>
 
             <!-- Copy que cuenta la historia profesional -->
             <p class="bio-text">
-              Estudié frontend, backend, UX e IA generativa porque me interesa
-              comprender el producto en su totalidad.
+              I studied frontend, backend, UX and generative AI because I want
+              to understand the product as a whole.
             </p>
 
             <p class="bio-text">
-              Antes del desarrollo, lideré equipos, trabajé en ventas y construí
-              una carrera en diseño e ilustración. Hoy aplico esa misma lógica
-              al código: entender el problema, pensar la solución, ejecutarla
-              bien — con criterio técnico, sensibilidad visual y capacidad para
-              comunicar en equipo.
+              Before development, I led teams, worked in sales, and built a
+              career in design and illustration. Today I apply that same logic
+              to code: understand the problem, think through the solution,
+              execute it well — with technical judgment, visual sensibility, and
+              the ability to communicate across teams.
             </p>
+
+            <p class="bio-text">
+              I completed the Frontend and Backend Development careers at ADA
+              ITW simultaneously, and today I'm building agentic AI systems with
+              LangChain and LangGraph while serving as an AI Tutor at Samsung
+              Innovation Campus 2026 — oriented toward the AI Engineer path. I
+              also run Trece Art Studio, my own design, illustration and web
+              development studio, with over 3 years of real client work,
+              including Cementerio de Libros (1.7M Instagram followers).
+            </p>
+          </div>
+
+          <!-- Lado derecho — foto de perfil + ficha técnica (location/status/stack) + LinkedIn
+     Antes solo tenía la foto; se sumaron las etiquetas y el link acá
+     para equilibrar el aire vertical con bio-left -->
+          <div class="bio-right">
+            <img
+              src="assets/images/profile.jpg"
+              alt="Photo of Camila Chirino Castell"
+              class="bio-photo"
+            />
 
             <!-- Etiquetas técnicas estilo space manual -->
             <div class="bio-tags">
@@ -226,7 +247,7 @@
               </div>
               <div class="bio-tag">
                 <span class="bio-tag-key">STACK______</span>
-                <span class="bio-tag-val">Fullstack · UX · AI</span>
+                <span class="bio-tag-val">Fullstack · AI Engineer</span>
               </div>
             </div>
 
@@ -240,17 +261,8 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Ver LinkedIn
+              View LinkedIn
             </a>
-          </div>
-
-          <!-- Lado derecho — foto de perfil -->
-          <div class="bio-right">
-            <img
-              src="assets/images/profile.jpg"
-              alt="Foto de Camila Chirino Castell"
-              class="bio-photo"
-            />
           </div>
         </div>
       </section>
