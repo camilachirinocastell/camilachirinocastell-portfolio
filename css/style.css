@@ -584,11 +584,9 @@ nav ul li a:hover {
    ================================ */
 
 /*
-  Se usa CSS Grid en lugar de Flexbox para esta sección porque
-  Grid controla dos dimensiones simultáneamente (filas Y columnas),
-  lo que permite definir 3 columnas de igual ancho con una sola línea.
-  Flexbox controla una sola dimensión — hubiera requerido más código
-  para lograr el mismo resultado.
+  Carrusel horizontal con Flexbox — overflow-x: auto genera el scroll,
+  scroll-snap-type ancla cada card prolijamente al hacer scroll,
+  sin que quede "a mitad de camino" entre dos cards.
 
   Cada card tiene imagen de preview arriba y cuerpo con texto abajo.
   La card "Coming Soon" tiene opacity reducida para comunicar
@@ -620,17 +618,42 @@ nav ul li a:hover {
   color: var(--text-color);
 }
 
-/* CSS Grid — repeat(3, minmax(0, 1fr)) crea 3 columnas de igual ancho
-   minmax(0, 1fr) permite que las columnas se reduzcan por debajo
-   de su contenido si es necesario, evitando overflow horizontal */
+/* Carrusel horizontal — overflow-x: auto genera el scroll,
+   scroll-snap-type: x mandatory ancla cada card al hacer scroll */
 .proyectos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
   gap: var(--spacing-sm);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px; /* separa el contenido de la scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+/* Scrollbar delgada y discreta en navegadores Chromium */
+.proyectos-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.proyectos-grid::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: var(--border-radius-sm);
+}
+
+/* Texto guía debajo del carrusel — indica que hay más proyectos scrolleando */
+.proyectos-scroll-hint {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 4px;
 }
 
 /* overflow: hidden en la card para que la imagen
-   respete el border-radius del contenedor */
+   respete el border-radius del contenedor.
+   flex: 0 0 33% hace que cada card ocupe un tercio del ancho
+   visible (se ven 3 de entrada) sin comprimirse.
+   scroll-snap-align ancla cada card al borde al scrollear */
 .proyecto-card {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -638,6 +661,8 @@ nav ul li a:hover {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  flex: 0 0 calc((100% - 2 * var(--spacing-sm)) / 3);
+  scroll-snap-align: start;
   transition:
     border-color var(--transition),
     transform var(--transition);
@@ -649,11 +674,12 @@ nav ul li a:hover {
   transform: translateY(-4px);
 }
 
-/* Contenedor de imagen con altura fija — la imagen se recorta
-   para llenar el espacio sin deformarse */
+/* Contenedor de imagen con altura reducida (antes 160px) —
+   libera espacio vertical para el resto del contenido de la card,
+   necesario para que las 3 cards entren en 100vh */
 .proyecto-preview {
   width: 100%;
-  height: 160px;
+  height: 120px;
   overflow: hidden;
 }
 
@@ -719,6 +745,7 @@ nav ul li a:hover {
   display: flex;
   gap: 8px;
   margin-top: 4px;
+  flex-wrap: wrap;
 }
 
 /* Links de proyecto — outline button consistente con el resto del sitio */
