@@ -470,7 +470,7 @@
               </div>
             </div>
 
-             <!-- Proyecto 06 — Fullstack App (Coming Soon) -->
+            <!-- Proyecto 06 — Fullstack App (Coming Soon) -->
             <div class="proyecto-card proyecto-coming-soon">
               <div class="proyecto-preview">
                 <img
@@ -494,8 +494,9 @@
                 </div>
               </div>
             </div>
-          </div><p class="proyectos-scroll-hint">→ Scroll for more projects</p>
-        </div> 
+          </div>
+          <p class="proyectos-scroll-hint">→ Scroll for more projects</p>
+        </div>
       </section>
 
       <!-- STACK — Tecnologías con grid de iconos y carrusel decorativo -->
@@ -506,6 +507,54 @@
 
           <!-- Grid estático de iconos oficiales (devicons via CDN — librería pública y gratuita) -->
           <div class="stack-grid">
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                alt="Python"
+                class="stack-icon"
+              />
+              <span class="stack-name">Python</span>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                alt="TypeScript"
+                class="stack-icon"
+              />
+              <span class="stack-name">TypeScript</span>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JavaScript"
+                class="stack-icon"
+              />
+              <span class="stack-name">JavaScript</span>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                alt="React"
+                class="stack-icon"
+              />
+              <span class="stack-name">React</span>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                alt="Node.js"
+                class="stack-icon"
+              />
+              <span class="stack-name">Node.js</span>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                alt="Express"
+                class="stack-icon"
+              />
+              <span class="stack-name">Express</span>
+            </div>
             <div class="stack-item">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
@@ -521,22 +570,6 @@
                 class="stack-icon"
               />
               <span class="stack-name">CSS</span>
-            </div>
-            <div class="stack-item">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                alt="JavaScript"
-                class="stack-icon"
-              />
-              <span class="stack-name">JavaScript</span>
-            </div>
-            <div class="stack-item">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                alt="Node.js"
-                class="stack-icon"
-              />
-              <span class="stack-name">Node.js</span>
             </div>
             <div class="stack-item">
               <img
@@ -556,63 +589,20 @@
             </div>
             <div class="stack-item">
               <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                alt="React"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                alt="Figma"
                 class="stack-icon"
               />
-              <span class="stack-name">React</span>
+              <span class="stack-name">Figma</span>
             </div>
           </div>
 
-          <!-- Carrusel decorativo infinito — solo visual, sin interacción
-               El contenido está triplicado para que el loop sea imperceptible:
-               translateX(-33.33%) desplaza un tercio del track y vuelve al inicio
-               sin corte visible porque el segundo bloque es idéntico al primero -->
+          <!-- Carrusel decorativo infinito — el contenido se genera con JS
+     desde la lista STACK_CARRUSEL_ITEMS en main.js, así no hay
+     que repetir el bloque HTML a mano cada vez que se agrega
+     o saca una tecnología -->
           <div class="stack-carrusel">
-            <div class="stack-carrusel-track">
-              <span class="stack-carrusel-item">HTML</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">CSS</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">JavaScript</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">Node.js</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">Git</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">GitHub</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">React</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">HTML</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">CSS</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">JavaScript</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">Node.js</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">Git</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">GitHub</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">React</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">HTML</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">CSS</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">JavaScript</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">Node.js</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">Git</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">GitHub</span>
-              <span class="stack-carrusel-item">·</span>
-              <span class="stack-carrusel-item">React</span>
-              <span class="stack-carrusel-item">·</span>
-            </div>
+            <div class="stack-carrusel-track" id="stack-carrusel-track"></div>
           </div>
         </div>
       </section>

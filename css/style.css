@@ -925,7 +925,7 @@ nav ul li a:hover {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-33.33%);
+    transform: translateX(var(--carrusel-distance));
   }
 }
 

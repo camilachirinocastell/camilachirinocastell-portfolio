@@ -52,3 +52,65 @@ themeToggle.addEventListener('click', () => {
   const isLight = document.body.classList.contains('light-mode');
   themeToggle.textContent = isLight ? '○ LIGHT' : '● DARK';
 });
+
+// ================================
+// CARRUSEL DE STACK — generado dinámicamente
+// ================================
+
+/*
+  Lista curada de tecnologías para el carrusel decorativo.
+  Para agregar o sacar una tecnología, solo hay que editar este array —
+  no hace falta tocar el HTML ni repetir bloques a mano.
+*/
+const STACK_CARRUSEL_ITEMS = [
+  "LangChain",
+  "LangGraph",
+  "Agentic AI",
+  "Prompt Engineering",
+  "REST API",
+  "JWT",
+  "Zod",
+  "OOP",
+  "MVC",
+  "SQLite",
+  "NumPy",
+  "Pandas",
+  "Vite",
+  "Postman",
+];
+
+/*
+  Genera el track del carrusel duplicando la lista en 2 bloques idénticos.
+  En vez de usar un porcentaje fijo (-50%) para la animación, medimos
+  el ancho real en píxeles de un bloque con JS — esto evita saltos
+  causados por redondeo de sub-píxeles del navegador al medir texto.
+*/
+function buildStackCarrusel() {
+  const track = document.getElementById("stack-carrusel-track");
+  if (!track) return;
+
+  const oneBlock = STACK_CARRUSEL_ITEMS.map(
+    (item) =>
+      `<span class="stack-carrusel-item">${item}</span><span class="stack-carrusel-item">·</span>`
+  ).join("");
+
+  // 2 bloques idénticos pegados
+  track.innerHTML = oneBlock.repeat(2);
+
+  // En vez de calcular la mitad matemáticamente (scrollWidth / 2),
+  // medimos DÓNDE arranca realmente el segundo bloque en el DOM —
+  // esto evita cualquier error de redondeo por el gap entre elementos
+  const children = track.children;
+  const secondBlockStart = children[children.length / 2];
+  const distance =
+    secondBlockStart.getBoundingClientRect().left -
+    track.getBoundingClientRect().left;
+
+  track.style.setProperty("--carrusel-distance", `-${distance}px`);
+}
+
+buildStackCarrusel();
+
+// Recalcula el ancho si la ventana cambia de tamaño —
+// el texto puede re-flowear y el ancho en px cambia
+window.addEventListener("resize", buildStackCarrusel);
