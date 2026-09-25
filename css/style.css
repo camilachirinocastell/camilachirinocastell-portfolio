@@ -1235,9 +1235,9 @@ nav ul li a:hover {
   En mobile vuelve a position: static y aparece al final
   del scroll normal — ver sección 13. RESPONSIVE.
 
-  Dos partes:
-  · footer-nav: mismos links de navegación que el header
-  · footer-bottom: links de contacto + copyright en una fila
+  Ahora contiene solo la firma de autoría (copyright) —
+  los links de navegación y contacto se sacaron por ser
+  redundantes con el header y la sección Contacto.
 */
 footer {
   position: fixed;
@@ -1266,71 +1266,16 @@ footer.visible {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
 }
 
-/* Links de navegación en fila — list-style: none elimina los bullets
-   justify-content: center los centra horizontalmente */
-.footer-nav ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  list-style: none;
-}
-
-/* Mismo estilo que nav ul li a del header — consistencia visual */
-.footer-nav ul li a {
-  font-family: var(--font-body);
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  transition: color var(--transition);
-}
-
-.footer-nav ul li a:hover {
-  color: var(--text-color);
-}
-
-/* Fila inferior — links de contacto a la izquierda, copyright a la derecha
-   space-between distribuye el espacio entre los dos extremos */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
-  border-top: 1px solid var(--border-color);
-  padding-top: var(--spacing-sm);
-}
-
-.footer-links {
-  display: flex;
-  gap: var(--spacing-sm);
-}
-
-/* Links de contacto en color secundario — mismo patrón que nav */
-.footer-link {
-  font-family: var(--font-body);
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  transition: color var(--transition);
-}
-
-.footer-link:hover {
-  color: var(--accent-color);
-}
-
-/* Copyright en monospace — mismo patrón que las etiquetas técnicas del sitio */
+/* Copyright en monospace — mismo patrón que las etiquetas técnicas del sitio.
+   text-align: center — ahora es el único elemento del footer */
 .footer-copy {
   font-family: monospace;
-  font-size: var(
-    --font-size-sm
-  ); /* subido de 0.75rem — da presencia a la firma */
+  font-size: var(--font-size-sm); /* subido de 0.75rem — da presencia a la firma */
   color: var(--border-color);
+  text-align: center;
 }
-
 /* ================================
    13. RESPONSIVE — MOBILE
    ================================ */

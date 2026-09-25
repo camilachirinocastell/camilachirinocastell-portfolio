@@ -720,147 +720,118 @@
   </div>
 </section>
 
-      <!-- CONTACTO — Layout dividido: información de contacto a la izquierda, formulario a la derecha
-           El formulario es solo visual por ahora — pendiente conectar con Formspree para envío real
-           Mismo patrón de layout dividido 50/50 que Hero y Bio -->
-      <section id="contacto">
-        <div class="contacto-container">
-          <!-- Lado izquierdo — frase de cierre, email, links y CV -->
-          <div class="contacto-left">
-            <!-- Frase de cierre sin título visible — copy editorial habla solo -->
-            <h2 class="contacto-titulo">¿Tenés un proyecto en mente?</h2>
-            <p class="contacto-subtitulo">Hablemos.</p>
+      <!-- CONTACTO — Layout dividido: información de contacto a la izquierda
+     El formulario (antes a la derecha) está comentado más abajo —
+     ver nota antes de reactivarlo con un backend propio -->
+<section id="contacto">
+  <div class="contacto-container">
+    <!-- Lado izquierdo — frase de cierre, email, links y CV -->
+    <div class="contacto-left">
+      <h2 class="contacto-titulo">Open to new opportunities.</h2>
+      <p class="contacto-subtitulo">Let's talk.</p>
 
-            <!-- Línea divisoria en color de acento — patrón editorial consistente con Bio -->
-            <div class="contacto-line"></div>
+      <!-- Línea divisoria en color de acento -->
+      <div class="contacto-line"></div>
 
-            <!-- Email directo — abre el cliente de correo del usuario -->
-            <a
-              href="mailto:camila.chirino.castell@mi.unc.edu.ar"
-              class="contacto-email"
-            >
-              camila.chirino.castell@mi.unc.edu.ar
-            </a>
+      <!-- Email directo — abre el cliente de correo del usuario -->
+      <a
+        href="mailto:camila.chirino.castell@mi.unc.edu.ar"
+        class="contacto-email"
+      >
+        camila.chirino.castell@mi.unc.edu.ar
+      </a>
 
-            <!-- Links externos — abren en nueva pestaña sin perder el portfolio -->
-            <div class="contacto-links">
-              <a
-                href="https://github.com/camilachirinocastell"
-                class="btn-secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                >GitHub</a
-              >
-              <a
-                href="https://www.linkedin.com/in/camila-chirino-castell"
-                class="btn-secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                >LinkedIn</a
-              >
-              <a href="assets/cv.pdf" class="btn-secondary" download
-                >Descargar CV</a
-              >
-            </div>
-          </div>
+      <!-- Links externos — abren en nueva pestaña sin perder el portfolio -->
+      <div class="contacto-links">
+        <a
+          href="https://github.com/camilachirinocastell"
+          class="btn-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/camila-chirino-castell"
+          class="btn-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        <a href="assets/cv.pdf" class="btn-secondary" download
+          >Download CV</a
+        >
+      </div>
+    </div>
 
-          <!-- Lado derecho — formulario de contacto
-               Solo visual por ahora — action="https://formspree.io/f/ID" cuando esté listo -->
-          <div class="contacto-right">
-            <form class="contacto-form">
-              <!-- Cada campo tiene su label asociado con for/id — accesibilidad y semántica -->
-              <div class="form-group">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  class="form-input"
-                  placeholder="Tu nombre"
-                  autocomplete="name"
-                />
-              </div>
+    <!-- ============================================================
+         FORMULARIO COMENTADO — 2026-09-25
+         Motivo: no estaba conectado a ningún backend (era solo visual),
+         y un formulario roto es peor que no tener formulario durante
+         una búsqueda laboral activa. Se deja el código completo acá
+         para no perderlo.
 
-              <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-input"
-                  placeholder="tu@email.com"
-                  autocomplete="email"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea
-                  id="mensaje"
-                  name="mensaje"
-                  class="form-textarea"
-                  placeholder="Contame sobre tu proyecto..."
-                  rows="5"
-                ></textarea>
-              </div>
-
-              <!-- Botón de envío — mismo estilo que btn-primary para consistencia -->
-              <button type="submit" class="btn-primary form-submit">
-                Enviar mensaje
-              </button>
-            </form>
-          </div>
+         PARA REACTIVAR con backend propio (Portfolio Backend API):
+         1. Agregar un endpoint POST /contact en el backend
+         2. Sacar este bloque del comentario
+         3. Agregar al <form> de abajo: action="URL_DEL_ENDPOINT" method="POST"
+         4. Descomentar también la línea de CSS de .contacto-right
+            en style.css si la comentaste ahí también
+         ============================================================
+    <div class="contacto-right">
+      <form class="contacto-form">
+        <div class="form-group">
+          <label for="nombre" class="form-label">Name</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            class="form-input"
+            placeholder="Your name"
+            autocomplete="name"
+          />
         </div>
-      </section>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="you@email.com"
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje" class="form-label">Message</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            class="form-textarea"
+            placeholder="Tell me about your project..."
+            rows="5"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary form-submit">
+          Send message
+        </button>
+      </form>
+    </div>
+    ============================================================ -->
+  </div>
+</section>
     </main>
 
-    <!-- Footer — links de navegación y links de contacto
-     Elemento fuera del fullpage scrolling — no tiene height: 100vh
-     Cumple requisito de la consigna: links de navegación + links de contacto + copyright -->
-    <footer>
-      <div class="footer-container">
-        <!-- Links de navegación — mismas anclas internas que el header -->
-        <nav class="footer-nav">
-          <ul>
-            <li><a href="#hero">Inicio</a></li>
-            <li><a href="#bio">Bio</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#stack">Stack</a></li>
-            <li><a href="#testimonios">Testimonios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
-
-        <!-- Links de contacto y copyright -->
-        <div class="footer-bottom">
-          <!-- Links externos — abren en nueva pestaña -->
-          <div class="footer-links">
-            <a
-              href="mailto:camila.chirino.castell@mi.unc.edu.ar"
-              class="footer-link"
-              >Email</a
-            >
-            <a
-              href="https://github.com/camilachirinocastell"
-              class="footer-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-            <a
-              href="https://www.linkedin.com/in/camila-chirino-castell"
-              class="footer-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn</a
-            >
-          </div>
-
-          <!-- &copy; es una entidad HTML — forma de escribir el símbolo © sin teclado -->
-          <p class="footer-copy">&copy; 2026 Camila Chirino Castell</p>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer — solo autoría/copyright
+     Los links de navegación y contacto ya están en el header
+     y en la sección Contacto — repetirlos acá era redundante -->
+<footer>
+  <div class="footer-container">
+    <p class="footer-copy">&copy; 2026 Camila Chirino Castell</p>
+  </div>
+</footer>
 
     <!-- Script al final del body para que el HTML cargue primero
          Maneja: dark/light mode toggle, scroll navigation, dot indicator -->
