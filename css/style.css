@@ -1031,12 +1031,19 @@ nav ul li a:hover {
   gap: 2px;
 }
 
-/* Nombre en font-weight: 500 — jerarquía visual sobre el rol */
+/* Nombre en font-weight: 500 — jerarquía visual sobre el rol.
+   Ahora es un link a LinkedIn: mantiene el mismo look que antes
+   (no el celeste de acento por default de los <a>), con un hover sutil */
 .testimonio-nombre {
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--text-color);
+  transition: color var(--transition);
+}
+
+.testimonio-nombre:hover {
+  color: var(--accent-color);
 }
 
 /* Rol en monospace — mismo patrón que las etiquetas de Bio y Stack */
